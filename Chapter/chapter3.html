@@ -383,13 +383,6 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
             0 & 0 & 0 & 0 & 0 & 0 & 1\\
             0 & 0 & 0 & 0 & 0 & 1 & 0\\
             \end{pmatrix}\]</p>
-		
-		
-
-
-
-
-
 		<p></p>
 	
 
@@ -403,6 +396,49 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 		<div class="container">			
 			<h2>Quantum Circuits</h2>
 			<p>Quantum circuit is a computation model that utilizes a combination of quantum gates to perform quantum operations on qubits. Quantum gates manipulate the quantum state of input qubits, leading to a final state that represents the computation's outcome. These outcomes are probabilistic so requires multiple measurements are required to obtain final results. One property of quantum circuits is reversiblility. This arises from the fact that each quantum gate is unitary, imply that the input state can be recovered from the output qubits using some unitary gates. The nature of quantum gates ensures that the evolution of the quantum state is traceable in both forward and backward directions.</p>
+			<img src="../fig/Circuit.png" id="centerImg">
+			<p>A simple quantum circuit from the book, "Classical and quantum information theory",
+				is as an example to explain the flow of quantum circuits. Similar to classical circuits,
+				the progression unfolds from right to left, with each step involving the execution of quantum gates on qubits.</p>
+			<p>
+				When |a> = |0>,
+				\[ |0>|x> \xrightarrow{CU} |0>|x> \xrightarrow{XA} X|0>A|x> = |1>A|x> \xrightarrow{CU'}
+					|1>U'A|x> \]
+				When |a> = |1>,
+				\[ |1>|x> \xrightarrow{CU} |1>U|x> \xrightarrow{XA} X|1>AU|x> = |0>AU|x> \xrightarrow{CU'}
+					|0>AU|x> \]
+				When |a> = \(\alpha|0> + \beta|1>\),
+					\[ \alpha|0>|x> + \beta|1>|x> \xrightarrow{}  \alpha|1>U'A|x> + \beta|0>AU|x>\]
+			</p>
+
+
+			<p><b>Quantum circuit for bell states</b></p>
+			<p>Add related circuits later.</p>
+			<p><b>Quantum full adder</b></p>
+
+			<p>The add cirucit use CNOT and CCNOT circuits so it is important to know the output state of the target qubit of CNOT and CCNOT.</p>
+			<p>CNOT gate acts on two qubits, A as control qubit and B as target qubit. </p>
+			<p>The output state of CNOT = \(|A>|A \oplus B>\)</p>
+			<p>	It is easy to verify it through true table.
+				When A is |0> as control qubit, the output of B(target qubit) is unchanged.
+				When A is |1> as control qubit, the output state of B(target qubit) flips.
+				Therefore, the output state of target is XOR between the state of A and B.
+			</p>
+			<p>CCNOT gate acts on three qubits, A and B as control qubits and C as target qubit.</p>
+			<p>The output state of CCNOT = \(|(A \cdot B) \oplus C>\)</p>
+			<p>We can see A and B as one qubit(\(A \cdot B\)) to control the target qubit so it is the same as CNOT gate.</p>
+
+
+			<img src="../fig/Add.png" id="centerImg">
+			<p></p>
+			<div>
+				\[
+
+				\]
+
+			</div>
+
+
 		</div>
 	</section>
 
