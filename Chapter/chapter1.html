@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,32 @@
             padding: 10px;
             border-radius: 5px;
         }
+        .bullet {
+            content: "\8227"; /* Unicode character for a bullet point */
+            color: #333; /* Color of the bullet point */
+            font-size: 1.2em; /* Adjust the size as needed */
+            margin-right: 5px; /* Add space between the bullet and the text */
+            vertical-align: middle; /* Align the bullet to the middle */
+            left: -15px; /* Adjust the positioning of the bullet */
+        }
+        .large-bullet {
+            font-size: 2em; /* Adjust the size of the bullet point */
+            margin-right: 3px; /* Add space between the bullet and the text */
+            vertical-align: middle; /* Align the bullet to the middle */
 
+        }
+
+        .marked {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .number {
+            display: inline-block;
+            width: 1.5em; /* Adjust the width of the number container */
+            margin-right: 5px; /* Add space between the number and the text */
+            font-size: 1.5em; /* Adjust the size of the number */
+            text-align: right;
+        }
 	</style>
 
 </head>
@@ -56,18 +81,55 @@
     <section id="about" class="about">
         <div class="container">
 			<h2>Quantum computer</h2>
-			<p>Quantum computer is a machine constructed based on the principles of quantum mechanics to perform computations. Richard Feynman fisrt proposed the idea that a quantum computer, based on the principles of quantum mechanics, could effectively simulate the behaviour of quantum systems. The original motivation behind Feynman's proposal arised from the inherent challenges classical computers faced in modeling quantum systems. The limitations of classical computers became increasingly evident as researchers sought to simulate complex quantum phenomena. Feynman suggested the concept of quantum computer, designed to utilize the unique properties of quantum mechanics to perform simulations more effectively. His proposal laid the groundwork for the field of quantum computing. Various types of quantum computers have been built and researchers are exporing the development of quantum computers, designing quantum algorithms for solving certain problems faster than classical one. The pursuit of practical quantum computing is fueled by the potential to fields such as optimization, cryptography, etc. </p>
+			<p>Quantum computer is a machine constructed based on the principles of quantum mechanics
+                to perform computations. Richard Feynman fisrt proposed the idea that a quantum computer,
+                based on the principles of quantum mechanics, could effectively simulate the behaviour
+                of quantum systems. The original motivation behind Feynman's proposal arised from the
+                inherent challenges classical computers faced in modeling quantum systems.
+                The limitations of classical computers became increasingly evident as researchers sought to
+                simulate complex quantum phenomena. Feynman suggested the concept of quantum computer,
+                designed to utilize the unique properties of quantum mechanics to perform simulations
+                more effectively. His proposal laid the groundwork for the field of quantum computing.
+                Various types of quantum computers have been built and researchers are exporing the
+                development of quantum computers, designing quantum algorithms for solving certain problems
+                faster than classical one. The pursuit of practical quantum computing is fueled by the
+                potential to fields such as optimization, cryptography, etc. </p>
 		
 			<h3>Types of quantum computers</h3>
-			<p>Quantum computers are caregorized into different types based on the physical qubits. Researchers are exploring various methods to build scable and fault-tolerant quantum computers. The types include superconducting, trapped ions, topoligical quantum computers, photonic quantum computers, quantum annealing, and nuclear magnetic resonance(NMR) quantum computers. Each approach has its unique set of advantages and challenges. </p>
+			<p>Quantum computers are caregorized into different types based on the physical qubits.
+                Common types include superconducting, trapped ions, topoligical, and photonic.
+                Each approach has its unique set of advantages and challenges. </p>
 			
 			<div class="list-container">
-				<div class="list-item">Superconducting quantum computers</div>
-				<div class="list-item">Trapped-ion quantum computers</div>
-				<div class="list-item">Topoliogical quantum computers</div>
-				<div class="list-item">Photonic quantum computers</div>
-				<div class="list-item">Quantum annealing</div>
-				<div class="list-item">NMR quantum computers</div>
+                <div class="list-item"><span class="large-bullet">&#8226;</span><b>Superconducting quantum computers</b>
+                    <div class="list-container">
+                        <div class="list-item">Advantages
+                            <p><span class="large-bullet">&#9642;</span>High Designability: superconducting qubits, including charge qubits, flux qubits, and phase qubits,
+                                offer a high level of design flexibility.
+                            </p>
+                            <p><span class="large-bullet">&#9642;</span>Scalability: superconducting qubits are prepared using semiconductor microfabrication
+                                processes, allowing for the leveraging of advanced chip-making technologies and the
+                                production of high-quality devices.</p>
+                            <p><span class="large-bullet">&#9642;</span>Easy to couple: superconducting qubits can be efficiently coupled using either capacitance
+                                or inductance, providing ease in creating interactions between qubits.</p>
+                            <p><span class="large-bullet">&#9642;</span>Easy to control: microwave control is compatible with the measurement of superconducting qubits,
+                                simplifying the control measurements.</p>
+
+                        </div>
+                        <div class="list-item">Challenges
+                            <p><span class="large-bullet">&#9642;</span>Short coherence time: decoherence time in superconducting qubits can be limited, impacting
+                                stability and reliability of quantum information processing.</p>
+                            <p><span class="large-bullet">&#9642;</span>Qubits not true 2-level systems: other unrelated quantum states exist, introducing complexities in their interactions.</p>
+                            <p><span class="large-bullet">&#9642;</span>Low temperature and advanced cryostats: Operating at sufficient low temperature, often close to absolute zero, is
+                                a requirement for superconducting qubits. The use of advanced cryostats maintains the condition of quantum coherence.</p>
+                        </div>
+                </div>
+
+				<div class="list-item"><span class="large-bullet">&#8226;</span>Trapped-ion quantum computers</div>
+				<div class="list-item"><span class="large-bullet">&#8226;</span>Topoliogical quantum computers</div>
+				<div class="list-item"><span class="large-bullet">&#8226;</span>Photonic quantum computers</div>
+				<div class="list-item"><span class="large-bullet">&#8226;</span>Quantum annealing</div>
+				<div class="list-item"><span class="large-bullet">&#8226;</span>NMR quantum computers</div>
 			</div>
 
 		</div>
