@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+	background-image: url('fig/qc.png');
+    background-size: cover; /* Adjust as needed */
+    background-position: center center; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
+    color: #fff; /* Set text color to be visible on the background */
+    text-align: center; /* Adjust as needed */
+    padding: 20px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+	font-size: 40px;
+	color: #fff;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+	overflow: hidden;
+    #padding: 20px; /* Adjust the padding as needed */
+	font-size: 20px;
+}
+
+#about {
+	
+	background-color: #fff; /* Add a background color */
+    border-radius: 10px; /* Add rounded corners */
+    padding: 70px; /* Adjust the padding as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+
+}
+
+#skills {
+   
+    background-color: #fff; /* Add a background color */
+    border-radius: 10px; /* Add rounded corners */
+    padding: 70px; /* Adjust the padding as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0; /* Adjust margin as needed */
+}
+
+#DivContent {
+	flex-basis: calc(33.33% - 20px); /* Adjust width and margin as needed */
+    margin-bottom: 20px; /* Adjust margin as needed */
+    text-align: center;
+
+}
+
+
+
+
+#contact {
+   
+    background-color: #fff; /* Add a background color */
+    border-radius: 10px; /* Add rounded corners */
+    padding: 70px; /* Adjust the padding as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+
+header {
+	background-color: rgb(252 211 77); /* Adjust the background color */
+    #background-color: #333;
+    color: #000;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav {
+    background-color: #444;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 1em 2em;
+    display: block;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
+section {
+    padding: 2em 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+
+#researchAreas {
+background-color: #fff; /* Add a background color */
+    border-radius: 10px; /* Add rounded corners */
+    padding: 70px; /* Adjust the padding as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	font-size: 40px:
+
+}
+

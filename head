@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Your Name - Profile</title>
+</head>
+<body>
+
+    <header onclick="window.location.href = 'index.html';">
+    	<h1>Hongfeng Zhang</h1>
+	</header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#Post">Post</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="Learn.html">Learn</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+  			<p>
+            	I am a passionate and dedicated second-year Ph.D. student at the University of Ghent, where I specialize in the fascinating intersection of quantum computing and bioinformatics.
+        	</p>
+        	<p>
+				In my current research, I focus on mRNA codon optimization and mRNA folding, delving into the application of quantum computing to address pressing challenges in bioinformatics. Specifically, my goal is to contribute to the development of mRNA vaccines, a field where quantum algorithms hold immense promise for optimizing sequences and enhancing vaccine efficacy.
+        	</p>
+        	<p>
+				The convergence of quantum computing and bioinformatics presents unprecedented opportunities. My work involves employing advanced quantum algorithms to analyze biological data, striving to uncover novel insights that can revolutionize vaccine design. I am particularly excited about the potential impact my research could have on the fight against infectious diseases.
+        	</p>      
+
+		</div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: tankzhang19@gmail.com</p>
+            <p>LinkedIn: linkedin.com/in/zhang-hongfeng-176122270/</p>
+            <!-- Add more contact information as needed -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Hongfeng Zhang</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+

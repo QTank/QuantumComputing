@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Your Name - Profile</title>
+	<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+	<style>
+        #centerImg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+
+		#cnot {
+			text-align: center;
+		}
+
+		.cnotContainer {
+            display: flex;
+        }
+
+        .box {
+			margin-right: 10px; /* Adjust the margin between divs as needed */
+            display: inline-block; /
+			background-color: #fff; /* Set background color as needed */
+        }
+
+
+
+    </style>
+		
+    </style>
+
+</head>
+
+
+<body>
+
+    <header onclick="window.location.href = 'index.html';">
+    	<h1>Hongfeng Zhang</h1>
+	</header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#Post">Post</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="Learn.html">Learn</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+		<section id="about" class="about">
+        <div class="container">
+			<h2>Quantum Bit</h2>
+			<p>In classical computing, a bit is the fundamental unit of information and the basic building block of digital data. A bit can represent one of two states, typically expressed as 0 or 1. Electronic devices, such as transistors in computer circuits, can easily build two states(high/low voltage), making it a natural choice for encoding information in digital systems. The manipulation of bits forms the foudation of digital computation and information processing in classical computers</p>
+			<p>In quantum computing, a quantum bit is the fundamental unit of quantum informationin quantum computing, also called qubit. Unlike classical bits which can only be certain in a state of 0 or 1, a qubit posseses the unique property of existing in both 0 and 1 simultaneously. This property is called as superposition. Upon measurement, the superposition collapses, and the qubit takes on a definte state either 0 or 1. The outcome is probablisstic, introducing an element of uncertainty. The probablities assigned during the superpostion influence the likelihood of the qubit collapsing into either state.</p>
+			
+			<p>In quantum information theory, a quantum state is noted as |\(\psi\)>. The quantum state 0 is noted as |0>, and the quantum state 1 is noted as |1>. The quantum state 0 and 1 can be represented as a vector, such as 
+	|0> = \(\begin{pmatrix}
+			1 \\
+			0
+			\end{pmatrix}\) 
+and |1| = \(\begin{pmatrix}
+			0\\
+			1
+			\end{pmatrix} \).
+A qubit can be represented by a line superpostion of two elementary orthogonal states |0> and |1>:</p>
+
+			<p id="eq1">\[|\psi> = \alpha|0> + \beta|1> = \alpha \begin{pmatrix}
+            1 \\
+            0
+            \end{pmatrix} + \beta \begin{pmatrix}
+            0 \\
+            1
+            \end{pmatrix} = \begin{pmatrix}
+            \alpha \\
+            \beta
+            \end{pmatrix}\]</p>
+			<p>The two coordinates \(\alpha\) and \(\beta\) are called qubit amplitudes. A measurement is not deterministic, but the total probabilites of all quantum states are certain to equal 1. When a qubit system is measured, the probability of yielding the quantum state 0 equals \(|\alpha|^{2}\), and that of yielding the quantum state 1 equals \(|\beta|^{2}\). Therefore we have</p> 
+			<p>\[|\alpha|^{2} + |\beta|^{2} = 1\]</p>
+
+			<p>In a multi-qubit system, the state of the entire system is described by the combined quantum states of each qubit. The state of the n-qubit system is represented as a linear combination of basis states. In a 2-qubit system, the basis state |00>, |01>, |10>, and |11> can be denoted as a vector:</p>
+			<p>\[|00> = \begin{pmatrix}
+            1 \\
+            0 \\
+            0 \\
+            0 \\
+            \end{pmatrix}, |01> = \begin{pmatrix}
+            0 \\
+            1 \\
+            0 \\
+            0 \\
+            \end{pmatrix}, |10> = \begin{pmatrix}
+            0 \\
+            0 \\
+            1 \\
+            0 \\
+            \end{pmatrix}, |11> = \begin{pmatrix}
+            0 \\
+            0 \\
+            0 \\
+            1 \\
+            \end{pmatrix} \]</p> 
+
+
+
+A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
+			<p>\[|\psi> = \alpha_{00}|00> + \alpha_{01}|01> + \alpha_{10}|10> + \alpha_{11}|11> = \begin{pmatrix}
+            \alpha_{00} \\
+            \alpha_{01} \\
+            \alpha_{10} \\
+            \alpha_{11} \\
+            \end{pmatrix}\]</p>
+			<p>Here, \(\alpha_{00}, \alpha_{01}, \alpha_{10}\), and \(\alpha_{11}\) are quantum amplitudes of |00>, |01>, |10>, and |11>,</p>
+
+			<p>\[|\alpha_{00}|^{2} + |\alpha_{01}|^{2} + |\alpha_{10}|^{2} + |\alpha_{11}|^{2} = 1\]</p>
+	</div>
+        </section>
+
+		<section id="about" class="about">
+		<div class="container">
+			<h2>Quantum Logic Gates</h2>
+			<p>Quantum logic Gates, also called quantum gates, are fundamental components in the field of quantum computing. Similar to classical gates, quantum gates are building for constructing quantum circuits. These gates manipulate quantum bits, from one quantum state \(|\psi>\) to another state \(|\psi'>\). For example, a quantum gate called U, and the relation between the input quantum state and output state can be expressed </p>
+			<p>\[|\psi'> = U|\psi>\]</p>
+			<p>Here, the quantum state \(|\psi>\) and \(|\psi'>\) are both a unitary vetor so the U is a unitaroy operator, which is the most imporant property of quantum gates. Please note it. Quantum gates are represented by unitary matrices. The common types of quantum gates include one-qubit gates and two-qubit gates.</p>
+			<p><b>One-qubit gates:</b></p>
+			<p><b>X gate:</b> flip the state of a qubit from |0> to |1> and vice versa.</p> 
+			<p>The matrix of X gate: </p>
+			<p>\[X = \begin{pmatrix}
+            0 & 1 \\
+            1 & 0 \\
+            \end{pmatrix}\]</p>
+
+			<p>For example, X gate is appled to the input qubit \(|\psi> = \alpha|0> + \beta|1>\), and the output qubit \(|\psi'>\) as follow,</p>
+			<p>\[|\psi'> = X|\psi> = \begin{pmatrix}
+            0 & 1 \\
+            1 & 0 \\
+            \end{pmatrix} \begin{pmatrix}
+            \alpha \\
+            \beta \\
+            \end{pmatrix} = \begin{pmatrix}
+            \beta \\
+            \alpha \\
+            \end{pmatrix} = \beta|0> + \alpha|1>\]</p>
+
+			<p>The outcome is \(\beta|0> + \alpha|1>\)</p>
+
+
+			<p><b>Y gate:</b> introduce a phase shift of 180 degrees when applied to |1>, and -180 degrees when applied to |0>.</p> 
+			<p>The matrix of Y gate: </p>
+			<p>\[Y = \begin{pmatrix}
+            0 & -i \\
+            i & 0 \\
+            \end{pmatrix}\]</p>
+			
+			<p>For example, Y gate is appled to the input qubit \(|\psi> = \alpha|0> + \beta|1>\), and the output qubit \(|\psi'>\) as follow,</p>
+			<p>\[|\psi'> = Y|\psi> = \begin{pmatrix}
+            0 & -i \\
+            i & 0 \\
+            \end{pmatrix} \begin{pmatrix}
+            \alpha \\
+            \beta \\
+            \end{pmatrix} = \begin{pmatrix}
+            i\beta \\
+            -i\alpha \\
+            \end{pmatrix} = i\beta|0> - i\alpha|1>\]</p>
+			
+			<p>The outcome is \(i\beta|0> - i\alpha|1>\)</p>
+
+
+
+			<p><b>Z gate:</b> introduce a phase flip when applied to |1>, and no changing when applied to |0>.</p> 
+			<p>The matrx of Z gate:</p>
+			<p>\[Z = \begin{pmatrix}
+            1 & 0 \\
+            0 & -1 \\
+            \end{pmatrix}\]</p>
+
+
+			<p>For example, Z gate is appled to the input qubit \(|\psi> = \alpha|0> + \beta|1>\), and the output qubit \(|\psi'>\) as follow,</p>
+			<p>\[|\psi'> = Z|\psi> = \begin{pmatrix}
+            1 & 0 \\
+            0 & -1 \\
+            \end{pmatrix} \begin{pmatrix}
+            \alpha \\
+            \beta \\
+            \end{pmatrix} = \begin{pmatrix}
+            \alpha \\
+            -\beta \\
+            \end{pmatrix} = \alpha|0> - \beta|1>\]</p>
+
+			<p>The outcome is \(\alpha|0> - \beta|1>\)</p>
+			
+			<p><b>Hadamare gate:</b> also called H gate, creates superposition by putting a qubit into an equal probability of being |0> and |1>.</p>
+			<p> The matrix of H gate:</p>
+			<p>\[H = \frac{1}{\sqrt{2}}\begin{pmatrix}
+            1 & 1 \\
+            1 & -1 \\
+            \end{pmatrix}\]</p>
+
+
+			<p>For example, Z gate is appled to the input qubit |0> and |1> respectively, and the output qubit \(|\psi'>\) as follow,</p>
+
+			<p>\[|\psi'> = H|0> = \frac{1}{\sqrt{2}}\begin{pmatrix}
+            1 & 1 \\
+            1 & -1 \\
+            \end{pmatrix} \begin{pmatrix}
+            1 \\
+            0 \\
+            \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+            1 \\
+            1 \\
+            \end{pmatrix} = \frac{1}{\sqrt{2}}(|0> + |1>)\]</p>
+
+
+			<p>\[|\psi'> = H|1> = \frac{1}{\sqrt{2}}\begin{pmatrix}
+            1 & 1 \\
+            1 & -1 \\
+            \end{pmatrix} \begin{pmatrix}
+            0 \\
+            1 \\
+            \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix}
+            1 \\
+            -1 \\
+            \end{pmatrix} = \frac{1}{\sqrt{2}}(|0>-|1>)\]</p>
+
+
+			<p>When the input qubit \(\alpha|0> + \beta|1>\), the output is </p>
+			<p>\[
+				\begin{align}
+				|\psi'> &= H(\alpha|0> - \beta|1>) \\
+						&= \alpha(\frac{1}{\sqrt{2}}(|0> + |1>)) + \beta(\frac{1}{\sqrt{2}}(|0> - |1>)) \\
+			 			&=\frac{\alpha+\beta}{\sqrt{2}}|0>+\frac{\alpha-\beta}{\sqrt{2}}|1>
+				\end{align}
+				\]
+			</p>
+
+
+
+			<p><b>Two-qubit gates:</b></p>
+			<p><b>CNOT gate:</b> one qubit is as control qubit and the other is as target qubit. The target qubit flip when the control qubit is in the state |1>, and no chaning when the state of the control qubit is |0>.</p>
+			<img src="CNOT.png" id="centerImg">
+			<p>CNOT gate acts the basis state, as follows:</p>
+			<p id="cnot">CNOT|00>=|00></p>
+			<p id="cnot">CNOT|01>=|01></p>
+			<p id="cnot">CNOT|10>=|11></p>
+			<p id="cnot">CNOT|11>=|10></p>
+
+			<p>The matrix of CNOT gate:</p>
+			<p>\[CNOT = \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0 \\
+            \end{pmatrix}\]</p>
+			
+			
+			<p>For example, the input qubit \(|\psi>=\alpha_{00}|00> + \alpha_{01}|01> + \alpha_{10}|10> + \alpha_{11}|11>\)</p>
+			<p>The output qubit after applying a CNOT gate: </p>
+			<div>
+				\[
+					\begin{align}
+
+						|\psi'> &= CNOT(\alpha_{00}|00> + \alpha_{01}|01> + \alpha_{10}|10> + \alpha_{11}|11>) \\
+								&= \begin{pmatrix}
+            						1 & 0 & 0 & 0 \\
+            						0 & 1 & 0 & 0 \\
+            						0 & 0 & 0 & 1 \\
+            						0 & 0 & 1 & 0 \\
+            						\end{pmatrix} \begin{pmatrix}
+            									  \alpha_{00}\\
+            									  \alpha_{01}\\
+            									  \alpha_{10}\\
+            									  \alpha_{11}\\
+												  \end{pmatrix} 
+								 = \begin{pmatrix}
+									\alpha_{00}\\
+                                    \alpha_{01}\\
+                                    \alpha_{11}\\
+                                    \alpha_{10}\\
+            					   \end{pmatrix} \\
+							    &=\alpha_{00}|00> + \alpha_{01}|01> + \alpha_{10}|11> + \alpha_{11}|10>
+					\end{align}
+
+				\]
+
+
+			</div>
+	</div>
+    <div class="container">
+		<p><b>SWAP gate:</b> swap the quantum state of two qubits. </p>
+		<img src="SWAP.png" id="centerImg">
+		<p>With respect to the basis states, the output state through a swap gate</p>
+		<p id="cnot">SWAP|00>=|00></p>
+		<p id="cnot">SWAP|01>=|10></p>
+		<p id="cnot">SWAP|10>=|01></p>
+		<p id="cnot">SWAP|11>=|11></p>
+		
+		<p>The matrix of SWAP gate:</p>
+        <p>\[SWAP = \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 1 & 0 & 1 \\
+            0 & 0 & 0 & 1 \\
+            \end{pmatrix}\]</p>
+
+		<div class="cnotContainer">
+    		<div class="box"><img src="CNOT01.png"></div>
+    		<div class="box">
+				\[
+					CNOT = \begin{pmatrix}
+            				1 & 0 & 0 & 0 \\
+            				0 & 1 & 0 & 0 \\
+            				0 & 0 & 0 & 1 \\
+            			0 & 0 & 1 & 0 \\
+            				\end{pmatrix}
+				\]
+			</div>
+		</div>
+
+
+
+		<p>\[SWAP = CNOT \times CNOT \times CNOT\]</p>
+
+
+
+
+
+
+		<p></p>
+
+
+
+	</div>
+
+	</section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: tankzhang19@gmail.com</p>
+            <p>LinkedIn: linkedin.com/in/zhang-hongfeng-176122270/</p>
+            <!-- Add more contact information as needed -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Hongfeng Zhang</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
