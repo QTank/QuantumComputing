@@ -428,13 +428,91 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 			<p>The output state of CCNOT = \(|(A \cdot B) \oplus C>\)</p>
 			<p>We can see A and B as one qubit(\(A \cdot B\)) to control the target qubit so it is the same as CNOT gate.</p>
 
-
-			<img src="../fig/Add.png" id="centerImg">
+			<p>The quantum circuit of full adder as follows:</p>
+			<img src="../fig/Adder.png" id="centerImg">
+			<p>We derive the math expression of \(C_{out}\) and S seperately. </p>
 			<p></p>
-			<div>
+			<div>In the stage 1,
 				\[
-
+					\begin{align}
+					|S> &= |C_{in}> \\
+					|A'> &= |A> \\
+					|B'> &= |B> \\
+					|C_{out}> &= |(AB) \oplus 0> = |AB>
+					\end{align}
 				\]
+			</div>
+			<div>
+				In the state 2,
+				\[
+					\begin{align}
+					|S> &= |C_{in}> \\
+					|A'> &= |A> \\
+					|B'> &= |A \oplus B> \\
+					|C_{out}> &= |(AB) \oplus 0> = |AB>
+					\end{align}
+				\]
+			</div>
+			<div>
+				In the stage 3,
+				\[
+					\begin{align}
+					|S> &= |C_{in}> \\
+					|A'> &= |A> \\
+					|B'> &= |A \oplus B> \\
+					|C_{out}> &= |AB \oplus [C_{in} \cdot (A \oplus B)]>
+					\end{align}
+				\]
+
+				In the stage 4,
+
+					\begin{align}
+					|S> &= |C_{in} \oplus A \oplus B> \\
+					|A'> &= |A> \\
+					|B'> &= |A \oplus B> \\
+					|C_{out}> &= |AB \oplus [C_{in} \cdot (A \oplus B)]>
+					\end{align}
+
+				In the final stage,
+					\begin{align}
+					|S> &= |C_{in} \oplus A \oplus B> \\
+					|A'> &= |A> \\
+					|B'> &= |A \oplus B> \\
+					|C_{out}> &= |AB \oplus [C_{in} \cdot (A \oplus B)]>
+					\end{align}
+				<p>From the equation above, we can see the expression state of |S> equals the math one of S of a full adder.</p>
+
+				<p>However, the expression of \(C_{out}\) is different from the one of a full adder. We can simply the expression to verify that they are the same one.</p>
+				<div>
+					\[
+						\begin{align}
+							|C_{out}> &= |AB \oplus [C_{in} \cdot (A \oplus B)]>
+						\end{align}
+					\]
+					We can use X represents \(A \oplus B\), then
+
+
+					\[
+						\begin{align}
+
+							|C_{out}> &= |AB \oplus [C_{in} \cdot X]> \\
+									  &= |AB \overline{C_{in}X} + \overline{AB} C_{in}X>\\
+									  &= |AB(\overline{C_{in}} + \overline{X}) + (\overline{A}+\overline{B})C_{in}X> \\
+									  &= |AB(\overline{C_{in}} + \overline{A\oplus B}) + (\overline{A}+\overline{B})C_{in}\overline{A\oplus B})> \\
+									  &= |AB(\overline{C_{in}} + AB + \overline{A}\overline{B}) + (\overline{A}+\overline{B})(A\overline{B} + \overline{A}B)C_{in}> \\
+									  &= |AB\overline{C_{in}} + AB + (A\overline{B} + \overline{A}B)C_{in}> \\
+									  &= |AB\overline{C_{in}} + (A\overline{B} + \overline{A}B)C_{in}> \\
+						\end{align}
+
+					\]
+					<p>We can see the expression of \(|C_{out}>\) equals the \(C_{out}\) of a full adder.
+						Therefore, the quantum full adder circuit can have the function of adding two qubits with carry.</p>
+
+
+
+				</div>
+
+
 
 			</div>
 
