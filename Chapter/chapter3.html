@@ -411,9 +411,34 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 					\[ \alpha|0>|x> + \beta|1>|x> \xrightarrow{}  \alpha|1>U'A|x> + \beta|0>AU|x>\]
 			</p>
 
+			<div>
+				<p><b>Quantum circuit for bell states</b></p>
+				<p>A Bell state, also called as an entangled state or EPR pair(Einsten-Podolsky-Rosen pair), is a specific
+					entangled quantum states of two qubits. John Bell introduced Bell inequalities that was designed to test
+					the entangled part of the property of quantum mechanics. The Bell states can be constructed through
+					the quantum circuits as follows. When some entanged qubits are prepared, the Bell quantum circuit can be applied into customed quantum circuits.
+				</p>
+				<img src="../fig/BellCircuit.png" id="centerImg">
+				<p>When the input qubit |q0> = |0> and |q1> = |0>, </p>
+				<div>
+					\[
+						|0>|0> \xrightarrow{H_{0}} H|0>|0> = \frac{1}{\sqrt{2}}(|0>+|1>)|0> \xrightarrow{CNOT_{01}}
+						\frac{1}{\sqrt{2}}(|00> + |11>)
+					\]
+				</div>
+				<p>The output qubit is \(\frac{1}{\sqrt{2}}(|00> + |11>)\)</p>
+				<p>In fact, there are four types of Bell states. Another three types as follows:</p>
+				<div>
+					\[
+						\beta_{01} = \frac{1}{\sqrt{2}}(|01> + |10>) \\
+						\beta_{10} = \frac{1}{\sqrt{2}}(|00> - |11>) \\
+						\beta_{11} = \frac{1}{\sqrt{2}}(|01> - |10>)
+					\]
+					<p>It means that the input qubits are |01>, |10> and |11> respectively in the quantum circuit above.</p>
+				</div>
+			</div>
 
-			<p><b>Quantum circuit for bell states</b></p>
-			<p>Add related circuits later.</p>
+
 			<p><b>Quantum full adder</b></p>
 
 			<p>The add cirucit use CNOT and CCNOT circuits so it is important to know the output state of the target qubit of CNOT and CCNOT.</p>
@@ -513,13 +538,29 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 
 			<p>For example, before we use the quantum full adder, we need to prepare the input qubit for
 				the value we want to compute. For example, when A = 0, B = 0, Cin = 1 and A = 1, B = 1, Cin = 1, we need
-				to design quantum circuit to satisfy the condition. For easy to lear, I use qiskit simulator to make
-				the quantum circuit clear. The quantum circuit as follows:</p>
+				to design quantum circuit to satisfy the condition. I used qiskit simulator to make
+				the quantum circuit and got the measurement outcome of the circuit. The quantum circuit as follows:</p>
 			<img src="../fig/adder_preparation_qiskit1.png" id="centerImg">
 
 			<img src="../fig/adder_preparation_qiskit2.png" id="centerImg">
+			<p>The first qubit |q0> is Cin, the second |q2> and third qubits |q3> are A and B, the last qubit |q4> is |0> as the input qubits.
+				We prepared input quantum states, one is |A> = |B> = |0>,  |Cin> = |1>, and the other is |A> = |B> = |1>, |Cin> = |1>.
+				In Qiskit, note the first qubit is the rightest one in the figure.
+				The outcome in the figure is |0001> with the probability with 677/1024, and |0111> with 347/1024.
+
+			</p>
 			<img src="../fig/adder_qiskit1.png" id="centerImg">
 			<img src="../fig/adder_qiskit2.png" id="centerImg">
+			<p>In the figure, from the right to left, the first qubit of the final result is the sum of A and B, the second and third one are A and B,
+				and the last one is the carry. </p>
+			<p>In the figure, |0001> represents the carry is 0 and the sum of A and B is 1 when A = B = 0, and Cin = 1.
+				Its probability is 653/1024 which is close to 677/1024.
+				|1111> represents the carray is the carry is 1 and the sum of A and B is 1 when A = B = 1, and Cin = 1.
+				Its probability is 371/1024 which is close to 647/1024.
+				It means that the quantum circuit can perform the function of a full adder.
+			</p>
+
+
 			<p></p>
 		</div>
 	</section>
