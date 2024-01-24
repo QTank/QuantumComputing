@@ -501,20 +501,20 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 									  &= |AB(\overline{C_{in}} + \overline{A\oplus B}) + (\overline{A}+\overline{B})C_{in}\overline{A\oplus B})> \\
 									  &= |AB(\overline{C_{in}} + AB + \overline{A}\overline{B}) + (\overline{A}+\overline{B})(A\overline{B} + \overline{A}B)C_{in}> \\
 									  &= |AB\overline{C_{in}} + AB + (A\overline{B} + \overline{A}B)C_{in}> \\
-									  &= |AB\overline{C_{in}} + (A\overline{B} + \overline{A}B)C_{in}> \\
+									  &= |AB + (A\overline{B} + \overline{A}B)C_{in}> \\
 						\end{align}
 
 					\]
 					<p>We can see the expression of \(|C_{out}>\) equals the \(C_{out}\) of a full adder.
 						Therefore, the quantum full adder circuit can have the function of adding two qubits with carry.</p>
-
-
-
 				</div>
-
-
-
 			</div>
+
+			<p>For example, before we use the quantum full adder, we need to prepare the input qubit for
+				the value we want to compute. For example, when A = 0, B = 0, Cin = 1 and A = 1, B = 1, Cin = 1, we need
+				to design quantum circuit to satisfy the condition. For easy to lear, I use qiskit simulator to make
+				the quantum circuit clear. The quantum circuit as follows:</p>
+			<img scr="../fig/adder_preparation.png" id="centerImg">
 
 
 		</div>
