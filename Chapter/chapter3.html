@@ -58,11 +58,16 @@
     </nav>
 		<section id="about" class="about">
         <div class="container">
-			<h2>Quantum Bit</h2>
+			<h1 id="chapter">Chapter 3 Quantum Operation</h1>
+			<h2>3. 1 Quantum Bit</h2>
 			<p>In classical computing, a bit is the fundamental unit of information and the basic building block of digital data. A bit can represent one of two states, typically expressed as 0 or 1. Electronic devices, such as transistors in computer circuits, can easily build two states(high/low voltage), making it a natural choice for encoding information in digital systems. The manipulation of bits forms the foudation of digital computation and information processing in classical computers</p>
 			<p>In quantum computing, a quantum bit is the fundamental unit of quantum informationin quantum computing, also called qubit. Unlike classical bits which can only be certain in a state of 0 or 1, a qubit posseses the unique property of existing in both 0 and 1 simultaneously. This property is called as superposition. Upon measurement, the superposition collapses, and the qubit takes on a definte state either 0 or 1. The outcome is probablisstic, introducing an element of uncertainty. The probablities assigned during the superpostion influence the likelihood of the qubit collapsing into either state.</p>
 			
-			<p>In quantum information theory, a quantum state is noted as |\(\psi\)>. The quantum state 0 is noted as |0>, and the quantum state 1 is noted as |1>. The quantum state 0 and 1 can be represented as a vector, such as 
+			<p>In quantum information theory, a quantum state is noted as |\(\psi\)>. The quantum state 0 is noted as |0>, and the quantum state 1 is noted as |1>.
+				A qubit can exist both quantum state 0 and 1, so it uses a two-dimensional vector to represent a qubit rather than a number like classical bit.
+				The first number in the vector represents the state 0 and the other represents the state 1.
+				In a math model, the quantum state 0 or 1 is the specific one, called computational basis states,
+				such as
 	|0> = \(\begin{pmatrix}
 			1 \\
 			0
@@ -70,8 +75,15 @@
 and |1| = \(\begin{pmatrix}
 			0\\
 			1
-			\end{pmatrix} \).
-A qubit can be represented by a line superpostion of two elementary orthogonal states |0> and |1>:</p>
+			\end{pmatrix} \). This is the most simple one to represent a qubit. All orthogonal vector can be used to represent a qubit.
+				For example, |0> = \(\begin{pmatrix}
+			\frac{1}{\sqrt{2}} \\
+			\frac{1}{\sqrt{2}}
+			\end{pmatrix}\)  and |1> = \(\begin{pmatrix}
+			\frac{1}{\sqrt{2}} \\
+			-\frac{1}{\sqrt{2}}
+			\end{pmatrix}\). But this one is a more complex than the first one in most situation.  \(\)
+			A qubit can be represented by a line superpostion of two elementary orthogonal states |0> and |1>:</p>
 
 			<p id="eq1">\[|\psi> = \alpha|0> + \beta|1> = \alpha \begin{pmatrix}
             1 \\
@@ -86,7 +98,28 @@ A qubit can be represented by a line superpostion of two elementary orthogonal s
 			<p>The two coordinates \(\alpha\) and \(\beta\) are called qubit amplitudes. A measurement is not deterministic, but the total probabilites of all quantum states are certain to equal 1. When a qubit system is measured, the probability of yielding the quantum state 0 equals \(|\alpha|^{2}\), and that of yielding the quantum state 1 equals \(|\beta|^{2}\). Therefore we have</p> 
 			<p>\[|\alpha|^{2} + |\beta|^{2} = 1\]</p>
 
-			<p>In a multi-qubit system, the state of the entire system is described by the combined quantum states of each qubit. The state of the n-qubit system is represented as a linear combination of basis states. In a 2-qubit system, the basis state |00>, |01>, |10>, and |11> can be denoted as a vector:</p>
+
+			</p>
+
+
+			<p>In a multi-qubit system, the state of the entire system is described by the combined quantum states of each qubit.
+				The state of the n-qubit system is represented as a linear combination of basis states.
+				The \(2^n\) dimensional vector can be used as the quantum state of a n-qubit quantum systm.
+			<p>\[
+					|\psi> = \begin{pmatrix}
+            				\alpha_{0} \\
+							\alpha_{1} \\
+
+							\vdots \\
+            				\alpha_{2^n - 1} \\
+							\end{pmatrix}
+				\]</p>
+			<p>Here, \(\alpha_{0}\) represents the amplitude of the quantum state \(|000....000>\)(binary representation with n bit of the number 0),
+				\(\alpha_{2^n-1}\) represents the amplitude of the quantum state \(|111....111>\)(binary representation with n bit of the number \(2^n-1\))</p>
+
+
+
+			<p>	In a 2-qubit system, the basis state |00>, |01>, |10>, and |11> can be denoted as a vector:</p>
 			<p>\[|00> = \begin{pmatrix}
             1 \\
             0 \\
@@ -110,7 +143,6 @@ A qubit can be represented by a line superpostion of two elementary orthogonal s
             \end{pmatrix} \]</p> 
 
 
-
 A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 			<p>\[|\psi> = \alpha_{00}|00> + \alpha_{01}|01> + \alpha_{10}|10> + \alpha_{11}|11> = \begin{pmatrix}
             \alpha_{00} \\
@@ -126,12 +158,23 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 
 		<section id="about" class="about">
 		<div class="container">
-			<h2>Quantum Logic Gates</h2>
-			<p>Quantum logic Gates, also called quantum gates, are fundamental components in the field of quantum computing. Similar to classical gates, quantum gates are building for constructing quantum circuits. These gates manipulate quantum bits, from one quantum state \(|\psi>\) to another state \(|\psi'>\). For example, a quantum gate called U, and the relation between the input quantum state and output state can be expressed </p>
+			<h2>3. 2 Quantum Logic Gates</h2>
+			<p>Quantum logic Gates, also called quantum gates, are fundamental components in the field of quantum computing. Similar to classical gates, quantum gates are building for constructing quantum circuits.
+				These gates manipulate quantum bits, from one quantum state \(|\psi>\) to another state \(|\psi'>\).
+				For example, a quantum gate called U, and the relation between the input quantum state and output state can be expressed </p>
 			<p>\[|\psi'> = U|\psi>\]</p>
-			<p>Here, the quantum state \(|\psi>\) and \(|\psi'>\) are both a unitary vetor so the U is a unitaroy operator, which is the most imporant property of quantum gates. Please note it. Quantum gates are represented by unitary matrices. The common types of quantum gates include one-qubit gates and two-qubit gates.</p>
+			<p>Here, the quantum state \(|\psi>\) and \(|\psi'>\) are both a unitary vetor so the U is a unitaroy operator,
+				which is the most imporant property of quantum gates. Please note it. Quantum gates are represented
+				by unitary matrices. The common types of quantum gates include one-qubit gates, two-qubit gates, and multiple-qubit gates.
+				One-qubit gates include Pauli gates(X gate, Y gate and Z gate), Rotation gates(Rx gate, Ry gate and Rz gate),
+				S gate and T gate. Two-qubit gates include Controlled Not gate, SWAP gate, Controlled Ration gate, and Controlled Unitary gate. Multiple gates include
+				Toffoli gate and Controlled SWAP gate.
+			</p>
 			<p><b>One-qubit gates:</b></p>
-			<p><b>X gate:</b> flip the state of a qubit from |0> to |1> and vice versa.</p> 
+			<p><b>X gate:</b> flip the state of a qubit from |0> to |1> and vice versa. It has the same function as the not gate in classical computing to flip a bit.
+				Here, the difference is that quantum X gate flips quantum states. Because the one-qubit input and output of X gate are represented by vectors, the expression of Gate is a matrix.
+				Matrix of a quantum gate is a concise way to represent the operation on qubits.
+				The expression of quantum gates can help predicting the final quantum states after complex quantum circuits perform.</p>
 			<img src="../fig/X.png" id="centerImg">
 			<p>The matrix of X gate: </p>
 			<p>\[X = \begin{pmatrix}
@@ -200,7 +243,7 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
             \end{pmatrix} = \alpha|0> - \beta|1>\]</p>
 
 			<p>The outcome is \(\alpha|0> - \beta|1>\)</p>
-			
+
 			<p><b>Hadamare gate:</b> also called H gate, creates superposition by putting a qubit into an equal probability of being |0> and |1>.</p>
 			
 			<img src="../fig/H.png" id="centerImg">
@@ -246,9 +289,32 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 				\end{align}
 				\]
 			</p>
-
-
-
+			<p>Here, X, H and Z gate has relations, Z gate obtained by X and H gate,
+				and X gate obtained by Z and H gate.
+				\[
+					X = HZH \\
+					Z = HXH
+				\]
+			</p>
+			<p>Reader can verify the relation between X, H and Z gate through linear algebra.</p>
+			<p>Rotation X gate: also called Rx gate, performs a rotation around the x-axis of the Bloch sphere. </p>
+			<p>The matrix of Rx gate:</p>
+			<p>\[R_{x}(\theta) = \begin{pmatrix}
+            	cos\frac{\theta}{2} & -i sin\frac{\theta}{2} \\
+            	-i sin\frac{\theta}{2} &  cos\frac{\theta}{2}\\
+            \end{pmatrix}\]</p>
+			<p>Rotation Y gate: also called Ry gate, performs a rotation around the y-axis of the Bloch sphere. </p>
+			<p>The matrix of Ry gate:</p>
+			<p>\[R_{y}(\theta) = \begin{pmatrix}
+            	cos\frac{\theta}{2} & -sin\frac{\theta}{2} \\
+            	sin\frac{\theta}{2} &  cos\frac{\theta}{2}\\
+            \end{pmatrix}\]</p>
+			<p>Rotation Z gate: also called Rz gate, performs a rotation around the z-axis of the Bloch sphere. </p>
+			<p>The matrix of Rz gate:</p>
+			<p>\[R_{z}(\theta) = \begin{pmatrix}
+            	e^{-i\frac{\theta}{2}} & 0 \\
+            	0 & e^{i\frac{\theta}{2}} \\
+            \end{pmatrix}\]</p>
 			<p><b>Two-qubit gates:</b></p>
 			<p><b>CNOT gate:</b> assign one qubit as the role of control qubit and pair it with another as the target qubit. The target qubit flips when the control qubit is in the state |1>, and remain unchanged when the control qubit is in the state |0>. In classical computing, XOR operation can flip the target bit based on the state of the control bit. However, the CNOT gate introduces the superposition and entanglement of quantum mechanics, CNOT gate allows qubits to exist in superposition, representing multiple states simultaneously, and be entangled for quantum parallelism computation. In contrast, XOR gate can only have one of two state at any given time.</p>
 			<img src="../fig/CNOT.png" id="centerImg">
@@ -394,7 +460,7 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 
 	<section id="about" class="about">
 		<div class="container">			
-			<h2>Quantum Circuits</h2>
+			<h2>3.3 Quantum Circuits</h2>
 			<p>Quantum circuit is a computation model that utilizes a combination of quantum gates to perform quantum operations on qubits. Quantum gates manipulate the quantum state of input qubits, leading to a final state that represents the computation's outcome. These outcomes are probabilistic so requires multiple measurements are required to obtain final results. One property of quantum circuits is reversiblility. This arises from the fact that each quantum gate is unitary, imply that the input state can be recovered from the output qubits using some unitary gates. The nature of quantum gates ensures that the evolution of the quantum state is traceable in both forward and backward directions.</p>
 			<img src="../fig/Circuit.png" id="centerImg">
 			<p>A simple quantum circuit from the book, "Classical and quantum information theory",
