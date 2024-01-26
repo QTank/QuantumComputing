@@ -463,6 +463,27 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 			<h2>3.3 Quantum Circuits</h2>
 			<p>Quantum circuit is a computation model that utilizes a combination of quantum gates to perform quantum operations on qubits. Quantum gates manipulate the quantum state of input qubits, leading to a final state that represents the computation's outcome. These outcomes are probabilistic so requires multiple measurements are required to obtain final results. One property of quantum circuits is reversiblility. This arises from the fact that each quantum gate is unitary, imply that the input state can be recovered from the output qubits using some unitary gates. The nature of quantum gates ensures that the evolution of the quantum state is traceable in both forward and backward directions.</p>
 			<img src="../fig/Circuit.png" id="centerImg">
+
+			<p>Understanding quantum circuits are easy for individuals with a background in classical digital circuits.
+				Both classical and quantum circuits follow the rule of bit or qubit from input to output through quantum gates.
+				The different is that qubits have superposition, leading different quantum states exists at the same.
+			</p>
+			<p>There are comparasion between classical and quantum circuits.</p>
+			<p>1. Basic circuit composition:</p>
+				<p><span class="large-bullet">&#9642;</span>Classical digital circuits: AND, OR, NOT, and XOR gates that perform classical Boolean operations on bits.</p>
+				<p><span class="large-bullet">&#9642;</span>Quantum circuits: X, Y, Z, CNOT gates, etc, that acts quantum bits.</p>
+			<p>2. Flow of Circuits:</p>
+				<p><span class="large-bullet">&#9642;</span>Classical digital circuits: information flows through classical bits.</p>
+			<p><span class="large-bullet">&#9642;</span>Quantum circuits: information flows through qubits.</p>
+			<p>3. Mathematical Model:</p>
+				<p><span class="large-bullet">&#9642;</span>Classical digital circuits: Boolean algebra is used to represent bits and handle computation.</p>
+				<p><span class="large-bullet">&#9642;</span>Quantum circuits: unitary vectors are represented quantum states and unitary matrix as quantum gates. Linear algebra is used to describe the procedure of quantum circuits.</p>
+			<p>4. Superposition:</p>
+				<p><span class="large-bullet">&#9642;</span>Classical digital circuits: process one bit at one time</p>
+				<p><span class="large-bullet">&#9642;</span>Quantum circuits: allow for the parallel manipulation of multiple quantum states becaues of the principles of superposition and entanglement.</p>
+			<p></p>
+
+
 			<p>A simple quantum circuit from the book, "Classical and quantum information theory",
 				is as an example to explain the flow of quantum circuits. Similar to classical circuits,
 				the progression unfolds from right to left, with each step involving the execution of quantum gates on qubits.</p>
@@ -624,6 +645,41 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 				|1111> represents the carray is the carry is 1 and the sum of A and B is 1 when A = B = 1, and Cin = 1.
 				Its probability is 371/1024 which is close to 647/1024.
 				It means that the quantum circuit can perform the function of a full adder.
+			</p>
+
+			<p></p>
+			<p>The preceding illustration described a one bit full adder. Now, consider the figure below,
+			representing a two bit full adder composed of two such one bit adders, such as A = 01 and B = |11>.
+				This conceptual framework
+			can be extended to design quantum adders for systems involving multiple bits.</p>
+
+			<img src="../fig/Adder_N.png" id="centerImg">
+			<p>When 01 and 11 are as the input of a two bit full adder, it means that |A0> = |1>,
+			|A1> = |0>, |B> = |1>, and |B>=|1>. The Cout of first adder is as the input Cin of the second adder.
+				The output of |S0>, |S1>, and |Cout> represent the first bit and the second bit of Sum (from right to left),
+			and the carry bit value. The sum of 01 and 11 equals 100 so |S0> = |0>, |S1 > = |0> and |Cout> = |1>.</p>
+
+			<p>
+				When multiple qubits add respectively, it only prepares the input qubits in superposition.
+				When the sum of the 11 and 01, it prepares |A0> = |1>, |A1> = |1>, |B0> = |1>, and |B1> = |0>.
+				when the sum of the 00 and 10, it prepares |A0> = |0>, |A1> = |0>, |B0> = |0>, and |B1> = |1>.
+
+				Therefore, |A0>|B0>|A1>|B1> needs to be |1110> and |0001> in the superposition.
+				<img src="../fig/two_bit_adder1.png" id="centerImg">
+				<img src="../fig/two_bit_adder2.png" id="centerImg">
+				<img src="../fig/two_bit_adder3.png" id="centerImg">
+			</p>
+			<p>From the outcome of qiskit, qubits are in the superposition with |01100100> and |0000010>(from the right to left in the figure).
+				It illustrates that |A0>|B0>|A1>|B1> is in |1110> and |0001> with the probability of 326/1024 and 698/1024 respectively.
+			</p>
+
+			<img src="../fig/two_bit_adder.png" id="centerImg">
+			<img src="../fig/two_bit_adder5.png" id="centerImg">
+			<p>The outcome |S0>|A0>|B0>|S1>|A1>|B1>|Cout> in the figure is |0001010> and |0110101>(from the right to left in the figure).</p>
+			<p>	|0001010> is |S0> = |0>, |A0> = |0>, |B0> = |0>, |S1> = |1>, |A1> = |0>, |B1> = |1>, |Cout> = |0>, so it means
+				the sum of 00 and 10 equals 010.</p>
+			<p>	|0110101> is |S0> = |0>, |A0> = |1>, |B0> = |1>, |S1> = |0>, |A1> = |1>, |B1> = |0>, |Cout> = |1>, so it means
+				the sum of 11 and 01 equals 100.
 			</p>
 
 

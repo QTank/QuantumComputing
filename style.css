@@ -126,3 +126,9 @@ background-color: #fff; /* Add a background color */
 	font-size: 40px;
 	color: #000;
 }
+.large-bullet {
+            font-size: 2em; /* Adjust the size of the bullet point */
+            margin-right: 3px; /* Add space between the bullet and the text */
+            vertical-align: middle; /* Align the bullet to the middle */
+
+        }
