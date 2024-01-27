@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>Your Name - Profile</title>
+    <title>Quantum Computing</title>
 	<script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
@@ -316,8 +316,14 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
             	0 & e^{i\frac{\theta}{2}} \\
             \end{pmatrix}\]</p>
 
-			<p><b>T gate</b>: </p>
+			<p><b>T gate</b>: a rotation about z-axis on the Bloch sphere by \(\frac{\pr}{4}\). </p>
 
+			<p>The matrix of T gate:</p>
+			<p>\[
+				T = \begin{pmatrix}
+            	1 & 0 \\
+            	0 & e^{i\frac{\pi}{4}}
+				\]</p>
 
 			<p><b>Two-qubit gates:</b></p>
 			<p><b>CNOT gate:</b> assign one qubit as the role of control qubit and pair it with another as the target qubit. The target qubit flips when the control qubit is in the state |1>, and remain unchanged when the control qubit is in the state |0>. In classical computing, XOR operation can flip the target bit based on the state of the control bit. However, the CNOT gate introduces the superposition and entanglement of quantum mechanics, CNOT gate allows qubits to exist in superposition, representing multiple states simultaneously, and be entangled for quantum parallelism computation. In contrast, XOR gate can only have one of two state at any given time.</p>
