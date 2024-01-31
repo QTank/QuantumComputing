@@ -535,6 +535,9 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 				</div>
 			</div>
 
+			<p>Toffoli Gate: includes H gate, T gate, \(T^\dagger\) gate and CNOT gate.</p>
+			<img src="../fig/Toffoli_n.png" id="centerImg">
+			<p>The quantum circuit equals Toffoli gate.</p>
 
 			<p><b>Quantum full adder</b></p>
 
@@ -692,8 +695,39 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 				the sum of 11 and 01 equals 100.
 			</p>
 
-
+			<p>Quantum binary multiplication</p>
+			The method is from the paper[1] that introduce the detailed process of constructing quantum multiplication.
+			In classical multiplication, each digital of one number A is multiplied by each digital of another number B, and then
+			add up the results according to their place values.
 			<p></p>
+			<img src="../fig/Multiplication.png" id="centerImg">
+
+			<p>The method of quantum multiplication is to construct two binary number multiplication and full adder. The binary numbers A and B
+				are represented using qubits. Toffoli gate is used to perform multiplication computation between qubits.
+				After multiplication, the results are added together using a quantum full adder. For example, firstly, the binary numbers A(\(A_3A_2A_1A_0\)) and B(\(B_3B_2B_1B_0\))
+				are encoded by qubits. In the second step, \(B_3A_0\), \(B_2A_0\), \(B_1A_0\), and \(B_0A_0\) are constructed respectively, then
+				the results are added together. The second step is continued to perform repeatedly until all the binary number of A and B are computed.
+			</p>
+			<img src="../fig/multiplication_qubit.png" id="centerImg">
+			<p>In the blue part of the figure, Ai and B0 ... Bn-1 are multiplied respectively using Toffoli gates.
+				In the red part of the figure, a full adder is used to add the outputs of C0 and C1. In the yellow part,
+				the C0 is recovered to the quantum states |000>. This is because it needs to continue to perform Ai and B0 ... Bn-1 multiplication.
+			</p>
+			<p>For example, I built a quantum circuit to multiple two numbers mod \(2^3\) with the binary length of 3. The first three qubits (q0, q1, q2) encode A,
+			qubits (q3, q4, q5) encodes 8, qubits (q6, q7, q8) represents \(A_i * B_j\), qubits (q9, q10, q11) represents A0 * B0, A0 * B1, A0 * B2,
+			qubits (12, 13, 14) represents the sum of the first addition(A0*B2 A0*B1 A0*B0 + A1*B1 A1*B0), qubit q15 represents the carry,
+			qubits (16, 17, 18) represents the sum of the second addition (qubits(12, 13, 14) + A2*B0), qubit 19 represents the carry.
+			The final result is qubits (16, 17, 18), the carry deleted because it needs to mod 8. </p>
+			<img src="../fig/multiplication_qiskit_1.png" id="centerImg">
+			<img src="../fig/multiplication_qiskit_2.png" id="centerImg">
+			<img src="../fig/multiplication_qiskit_3.png" id="centerImg">
+
+			<p>Qiskit example lists A and B range from 0 and 15. The final results are mod 8. </p>
+			<p></p>
+
+			<h3>Reference</h3>
+			<p>1. Cho, S. M., Kim, A., Choi, D., Choi, B. S., & Seo, S. H. (2020).
+				Quantum modular multiplication. IEEE Access, 8, 213244-213252.</p>
 		</div>
 	</section>
 
