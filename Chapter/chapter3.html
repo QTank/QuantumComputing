@@ -170,7 +170,7 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 				S gate and T gate. Two-qubit gates include Controlled Not gate, SWAP gate, Controlled Ration gate, and Controlled Unitary gate. Multiple gates include
 				Toffoli gate and Controlled SWAP gate.
 			</p>
-			<p><b>One-qubit gates:</b></p>
+			<h3><b>One-qubit Gates</b></h3>
 			<p><b>X gate:</b> flip the state of a qubit from |0> to |1> and vice versa. It has the same function as the not gate in classical computing to flip a bit.
 				Here, the difference is that quantum X gate flips quantum states. Because the one-qubit input and output of X gate are represented by vectors, the expression of Gate is a matrix.
 				Matrix of a quantum gate is a concise way to represent the operation on qubits.
@@ -316,16 +316,16 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
             	0 & e^{i\frac{\theta}{2}} \\
             \end{pmatrix}\]</p>
 
-			<p><b>T gate</b>: a rotation about z-axis on the Bloch sphere by \(\frac{\pr}{4}\). </p>
+			<p><b>T gate</b>: a rotation about z-axis on the Bloch sphere by \(\frac{\pi}{4}\). </p>
 
 			<p>The matrix of T gate:</p>
 			<p>\[
 				T = \begin{pmatrix}
             	1 & 0 \\
             	0 & e^{i\frac{\pi}{4}}
-				\]</p>
+				\end{pmatrix}\]</p>
 
-			<p><b>Two-qubit gates:</b></p>
+			<h3><b>Two-qubit Gates</b></h3>
 			<p><b>CNOT gate:</b> assign one qubit as the role of control qubit and pair it with another as the target qubit. The target qubit flips when the control qubit is in the state |1>, and remain unchanged when the control qubit is in the state |0>. In classical computing, XOR operation can flip the target bit based on the state of the control bit. However, the CNOT gate introduces the superposition and entanglement of quantum mechanics, CNOT gate allows qubits to exist in superposition, representing multiple states simultaneously, and be entangled for quantum parallelism computation. In contrast, XOR gate can only have one of two state at any given time.</p>
 			<img src="../fig/CNOT.png" id="centerImg">
 			<p>CNOT gate operates the basis state as follows:</p>
@@ -445,7 +445,7 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 
 
 
-		<h3>Three-qubit gates</h3>
+		<h3>Three-qubit Gates</h3>
 		<p><b>Toffoli gate:</b> also called CCNOT gate, assign two qubits as control qubit and another qubit as target qubit. The target qubit flips when both control qubits are in the state |1>, and otherwise the target qubit remains unchanged.</p>
 		<img src="../fig/CCNOT.png" id="centerImg">
 		<p>The matrix of Toffoli gate or CCNOT gate(the first and second qubit as control qubits and the third qubit as target qubit):</p>
@@ -472,7 +472,6 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 		<div class="container">			
 			<h2>3.3 Quantum Circuits</h2>
 			<p>Quantum circuit is a computation model that utilizes a combination of quantum gates to perform quantum operations on qubits. Quantum gates manipulate the quantum state of input qubits, leading to a final state that represents the computation's outcome. These outcomes are probabilistic so requires multiple measurements are required to obtain final results. One property of quantum circuits is reversiblility. This arises from the fact that each quantum gate is unitary, imply that the input state can be recovered from the output qubits using some unitary gates. The nature of quantum gates ensures that the evolution of the quantum state is traceable in both forward and backward directions.</p>
-			<img src="../fig/Circuit.png" id="centerImg">
 
 			<p>Understanding quantum circuits are easy for individuals with a background in classical digital circuits.
 				Both classical and quantum circuits follow the rule of bit or qubit from input to output through quantum gates.
@@ -497,6 +496,8 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 			<p>A simple quantum circuit from the book, "Classical and quantum information theory",
 				is as an example to explain the flow of quantum circuits. Similar to classical circuits,
 				the progression unfolds from right to left, with each step involving the execution of quantum gates on qubits.</p>
+
+			<img src="../fig/Circuit.png" id="centerImg">
 			<p>
 				When |a> = |0>,
 				\[ |0>|x> \xrightarrow{CU} |0>|x> \xrightarrow{XA} X|0>A|x> = |1>A|x> \xrightarrow{CU'}
@@ -509,7 +510,7 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 			</p>
 
 			<div>
-				<p><b>Quantum circuit for bell states</b></p>
+				<h3><b>Quantum circuit for bell states</b></h3>
 				<p>A Bell state, also called as an entangled state or EPR pair(Einsten-Podolsky-Rosen pair), is a specific
 					entangled quantum states of two qubits. John Bell introduced Bell inequalities that was designed to test
 					the entangled part of the property of quantum mechanics. The Bell states can be constructed through
@@ -534,12 +535,12 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 					<p>It means that the input qubits are |01>, |10> and |11> respectively in the quantum circuit above.</p>
 				</div>
 			</div>
-
+			<h3>Toffoli Gate</h3>
 			<p>Toffoli Gate: includes H gate, T gate, \(T^\dagger\) gate and CNOT gate.</p>
 			<img src="../fig/Toffoli_n.png" id="centerImg">
 			<p>The quantum circuit equals Toffoli gate.</p>
 
-			<p><b>Quantum full adder</b></p>
+			<h3><b>Quantum full adder</b></h3>
 
 			<p>The add cirucit use CNOT and CCNOT circuits so it is important to know the output state of the target qubit of CNOT and CCNOT.</p>
 			<p>CNOT gate acts on two qubits, A as control qubit and B as target qubit. </p>
@@ -695,7 +696,7 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 				the sum of 11 and 01 equals 100.
 			</p>
 
-			<p>Quantum binary multiplication</p>
+			<h3><a>Quantum binary multiplication</a></h3>
 			The method is from the paper[1] that introduce the detailed process of constructing quantum multiplication.
 			In classical multiplication, each digital of one number A is multiplied by each digital of another number B, and then
 			add up the results according to their place values.
