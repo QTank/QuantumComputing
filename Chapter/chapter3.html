@@ -722,7 +722,13 @@ A qubit in a 2-qubit system can be in a superposition of four basis states:</p>
 			<img src="../fig/multiplication_qiskit_2.png" id="centerImg">
 			<img src="../fig/multiplication_qiskit_3.png" id="centerImg">
 
-			<p>Qiskit example lists A and B range from 0 and 15. The final results are mod 8. </p>
+			<p>Qiskit example lists A and B range from 0 and 15 and the final results mod 8. It requires the number of qubits </p>
+			<div>
+				\[2 * L_{a} + 2 * L_{c} + 2 * (L_{c} + 1)\]
+			</div>
+			<p>\(L_a\) represents the length of the encoding binary string of A or B.
+			\(L_c\) represents the length of the encoding binary string of the final result. In the example, \(L_a\) and \(Lc\) are 3 so the length of
+				qubits is 20.</p>
 			<p></p>
 
 			<h3>Reference</h3>
