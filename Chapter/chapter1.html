@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <title>Quantum Computing</title>
-
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
 	<style>
 		.list-container {
             display: flex;
@@ -106,20 +108,39 @@
         <div class="container">
             <h3>1.2 Types of quantum computers</h3>
             <p>Quantum computers are caregorized into different types based on the physical qubits.
-                Common types include superconducting, trapped ions, topoligical, and photonic.
-                Each approach has its unique set of advantages and challenges. </p>
-                <div class="list-item"><span class="large-bullet">&#8226;</span>Superconducting quantum computers</div>
-				<div class="list-item"><span class="large-bullet">&#8226;</span>Trapped-ion quantum computers</div>
-				<div class="list-item"><span class="large-bullet">&#8226;</span>Topoliogical quantum computers</div>
-				<div class="list-item"><span class="large-bullet">&#8226;</span>Photonic quantum computers</div>
-				<div class="list-item"><span class="large-bullet">&#8226;</span>Quantum annealing</div>
-				<div class="list-item"><span class="large-bullet">&#8226;</span>NMR quantum computers</div>
+                Common types include superconducting quantum computers, trapped-ion quantum computers, semiconductor quantum computers
+                topoligical quantum computers, quantum annealers, and photonic quantum computers.
+                Each approach has its unique set of advantages and challenges and is discussed as follows.</p>
+<!--                <div class="list-item"><span class="large-bullet">&#8226;</span>Superconducting quantum computers</div>-->
+<!--				<div class="list-item"><span class="large-bullet">&#8226;</span>Trapped-ion quantum computers</div>-->
+<!--				<div class="list-item"><span class="large-bullet">&#8226;</span>Topoliogical quantum computers</div>-->
+<!--				<div class="list-item"><span class="large-bullet">&#8226;</span>Photonic quantum computers</div>-->
+<!--				<div class="list-item"><span class="large-bullet">&#8226;</span>Quantum annealing</div>-->
+<!--				<div class="list-item"><span class="large-bullet">&#8226;</span>NMR quantum computers</div>-->
 
 
 
 
 
             <p><b>1.2.1 Superconducting quantum computers</b></p>
+<!--                <p>How to prepare quantum bits on superconducting</p>-->
+
+                <p>Superconducting quantum computers rely on superconducting circuits to manipulate quantum bits. It utilizes
+                    superconducting materials, which has zero resistance around absolute zero temperature. Quantum bits can be prepared
+                    by Josephson Junctions. The Josephson Junction is a device in superconductivity that consists of two superconductors separated by a thin
+                    insulating or non-superconducting barrier. The key feature of the Josephson Junction is to allow
+                    supercurrent to flow across the barrier. The quantum phenomenon can be observed in Josephson junctions. </p>
+                <p></p>
+
+                <img src="../fig/superconducting-qubit.png" id="centerImg">
+
+                <p>There are three types of superconducting quantum qubits, charge qubit, flux qubit, and phase qubit, where U represents a voltage, Cg represents a capacitance,
+                    L represents an inductance, \(I_{0}\) represents a current, and \(E_{J}\) represents a Josephson junction.</p>
+                <p>Transmon qubit is the most common one of the charge qubit. It is a variation of the original Cooper pair box qubit,
+                    improving coherence and properties and easier control. One key feature is the energy difference between the qubit's ground
+                    and excited states is much larger than the thermal energy at the operating temperature. In addition,
+                    it has less noise and long coherence times. </p>
+                <p>Flux qubit </p>
                 <div class="list-item">Advantages
                     <p><span class="large-bullet">&#9642;</span>High Designability: superconducting qubits, including charge qubits, flux qubits, and phase qubits,
                         offer a high level of design flexibility.
