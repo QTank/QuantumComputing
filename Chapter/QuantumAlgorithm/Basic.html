@@ -32,7 +32,7 @@
             <p>It is the first quantum algorithm I begin the journey of exploring quantum algorithms.
                 It is design to find a hidden bitstring and can be applied in crytography, function inversion, and database search. </p>
             <p>Problem definition: given an oracle(black box) function f(x) where it runs the given a hidden bitstring with the length of n, how to find it? </p>
-            <p>\( f(x) = s \cdot x \) (mod 2) = \((s_1x_1 + s_2x_2 + \cdots + s_nx_n) \) (mod 2)</p>
+            <p>\[ f(x) = s \cdot x \text{  (mod 2)} = (s_1x_1 + s_2x_2 + \cdots + s_nx_n) \text{ (mod 2)} \]</p>
             <p>In classical computing, it requires n queries because each query can get only one single bit of the hidden bitstring.
                 The algorithm has a time complexity of O(n).</p>
             <p>In quantum computing, it only needs one query so the time complexity is O(1). This quantum algorithm has a speedup
@@ -70,7 +70,7 @@
                 It is not important to know how to construct the oracle function with quantum circuits now. The circuits of an oracle are designed according to the specific function.</p>
             <p>A common quantum oracle is as follows, where x represents data qubits and y represents target qubits.
                 The outcome of x has no changes and the outcome of y is \(y \oplus f(x)\). I will take an example of an oracle when introducing the BV algorithm later.</p>
-            <img src="../../fig/oracle.png" id="centerImg">
+            <img src="../../fig/oracle_circuit.png" id="centerImg">
             <p>When x = \(\frac{|0>+|1>}{\sqrt{2}}\) and y = |1>, then the outcome is:</p>
             <p>\[|x>|y\oplus f(x)> = \frac{|0>|1\oplus f(0)> + |1>|1\oplus f(1)>}{\sqrt{2}} = \frac{|0>|\overline{f(0)}> + |1>|\overline{f(1)}>}{\sqrt{2}}\]</p>
             <h3>How the BV algorithm can work.</h3>
