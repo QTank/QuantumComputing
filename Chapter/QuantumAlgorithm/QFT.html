@@ -101,10 +101,8 @@
             <img src="../../fig/CRk.png" id="centerImg">
             <p>When |a> = |0>, |b'> = |b></p>
             <p>Wehn |a> = |1>, \(|b'> = e^{\frac{2i\pi}{2^k}}|b>\)</p>
-            <p>When \(|a> = \frac{1}{\sqrt{2}}(|0> + |1>)\), </p>
             <p>\[\begin{align}
-                |b'> &= \frac{1}{\sqrt{2}}(|0> + e^{\frac{2i\pi b}{2^k}}|1>) \\
-                     &= \frac{1}{\sqrt{2}}(|0> + e^{2i\pi 0.\overbrace{00\cdots0}^{k-1}b}|1>) \\
+                |b'> &= e^{\frac{2i\pi a}{2^k}}|b> = e^{2i\pi 0.\overbrace{00\cdots0}^{k-1}a}|b> \\
                 \end{align}
                 \]</p>
             <p>\[\]</p>
@@ -161,6 +159,38 @@
             <p>Now we can execute the example on Qiskit. </p>
             <img src="../../fig/QFT_code1.png" id="centerImg">
             <img src="../../fig/QFT_code2.png" id="centerImg">
+
+            <h3>Inverse Quantum Fourier Transformation</h3>
+            <p>Inverse Quantum Fourier Transformation (IQFT) is the inverse operation of QFT.
+            The circuit of IQFT can be constructed by the inverse of the circuit of QFT because each gate in QFT is unitary.
+            The only thing is to reverse the order of gates in QFT and apply conjugates of gates. </p>
+            <p>\[\begin{align}
+                |j> \xrightarrow{QFT} \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}e^{\frac{2i\pi jk}{N}}|k> \xrightarrow{IQFT} |j> \\
+                \end{align}
+                \]</p>
+            <img src="../../fig/IQFT.png" id="centerImg">
+
+            <p>We need to know \(R_{k}^{\dagger}\) is the conjugates of \(R_{k}\), </p>
+            <img src="../../fig/CRkDagger.png" id="centerImg" >
+            <p>\[CR_k^{\dagger} = \begin{pmatrix}
+                    1 & 0 & 0 & 0 \\
+                    0 & 1 & 0 & 0 \\
+                    0 & 0 & 1 & 0 \\
+                    0 & 0 & 0 & e^{-\frac{2i\pi}{2^k}}
+                \end{pmatrix}
+                \]</p>
+            <p>When the input |a> and |b>, </p>
+            <p>\[\begin{align}
+                |b'> &= e^{-\frac{2i\pi a}{2^k}}|b> = e^{-2i\pi 0.\overbrace{00\cdots0}^{k-1}a}|b> \\
+                \end{align}
+                \]</p>
+
+            <p>When the input |j>, the outcome of IQFT, </p>
+            <p>\[\begin{align}
+                |j> &\xrightarrow{IQFT} \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}e^{-\frac{2i\pi jk}{N}}|k> \\
+                       &= \frac{1}{\sqrt{N}} (|0> + e^{-2i\pi 0.j_{n}}|1>)(|0> + e^{-2i\pi 0.j_{n-1}j_{n}}|1>)\cdots (|0> + e^{-2i\pi 0.j_1j_2\cdots j_{n}}|1>)
+                \end{align}
+                \]</p>
             <p></p>
             <p>
             </p>
