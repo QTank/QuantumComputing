@@ -116,21 +116,57 @@
 
 
             <h3>Continued fraction expansion</h3>
-
-            <p>Theorem: Suppose \(\frac{s}{r}\) is a rational number, </p>
-            <p>\[|\frac{s}{r} - \varphi| \leq \frac{1}{2r^2}\]</p>
-            <p>where \(\varphi\) is the estimation of \(s/r\)</p>
-
-            <p>The expression of the continued fraction is as follows, </p>
+            <p>Continued fraction expansion is used to represent a rational number as a sequence of integers, which can provide an approximation in terms of fractions. It satisfies our requirements, finding a fraction s/r that approximates the phase estimation \(\varphi\).
+            The expression of the continued fraction is as follows,
+            </p>
             <p>\[ [a_0, a_1, \cdots, a_{n}] = a_0 + \frac{1}{a_1 + \frac{1}{a_2 + \frac{1}{\cdots + \frac{1}{a_n}}}} \]</p>
             <p>where \(a_0, a_1, \cdots, a_n \geq 0\). We defined the jth convergent when choose \([a_0, a_1, \cdots, a_j]\) where \(0 \leq j \leq\) n. </p>
-            <p>
-                Waiting ... Author is trying to update quickly.
-            </p>
+
+            <p>For instance, a rational number s/r where s and r are integers with r > 0 and s > 0. </p>
+            <p>1. Start with the integer part: \(\frac{s}{r}\) = integer part + fractional part.</p>
+            <p>2. Take the reciprocal of the fractional part.</p>
+            <p>3. Repeat this process until the fractional part becomes zeros or until you reach the convergent level you desire.</p>
+            <p>For example, we find the continued fraction expansion of a number 2.71828, </p>
+            <p>\[\begin{align}
+                &2.71828 = 2 + \frac{1}{\frac{1}{0.71828}} = 2 + \frac{1}{1.39221}\\
+                &1.39221 = 1 + \frac{1}{\frac{1}{0.39221}} = 1 + \frac{1}{2.54965} \\
+                &2.54965 = 2 + \frac{1}{\frac{1}{0.54965}} = 1 + \frac{1}{1.81934} \\
+                &1.81934 = 1 + \frac{1}{\frac{1}{0.81934}} = 1 + \frac{1}{1.22049} \\
+                              &\cdots
+                \end{align}
+                \]</p>
+
+            <p>We can obtain the continued fraction expansion: </p>
+            <p>2.71828 \(\approx [2, 1, 2, 1, \cdots ]\). </p>
+            <p>When we just chose [2, 1, 2, 1], then </p>
+            <p>\[2.71828 \approx 2 + \frac{1}{1 + \frac{1}{2 + \frac{1}{1}}} = \frac{11}{4}\]</p>
+            <p></p>
+
+<!--            <p>Theorem: Suppose \(\frac{s}{r}\) is a rational number, </p>-->
+<!--            <p>\[|\frac{s}{r} - \varphi| \leq \frac{1}{2r^2}\]</p>-->
+<!--            <p>where \(\varphi\) is the estimation of \(s/r\)</p>-->
+
+
+            <h3>Example on Qiskit</h3>
+            <p>I give an example of Shor's algorithm on Qiskit. I refer the blog<a href="https://wayama.io/en/rec/qiskit/shor/">[3]</a> that explains the shor's algorithm and has codes on Qiskit.
+                The example factorizes the number 15. </p>
+            <img src="../../fig/shor_code1.png" id="centerImg">
+            <img src="../../fig/shor_code2.png" id="centerImg">
+            <img src="../../fig/shor_code3.png" id="centerImg">
+            <img src="../../fig/shor_code4.png" id="centerImg">
+            <img src="../../fig/shor_code5.png" id="centerImg">
+            <img src="../../fig/shor_code6.png" id="centerImg">
+            <img src="../../fig/shor_code7.png" id="centerImg">
+            <img src="../../fig/shor_code8.png" id="centerImg">
+            <p>In the example, 15 is factorized to 3 and 5. The result is what I expect. </p>
+<!--            <p>-->
+<!--                Waiting ... Author is trying to update quickly.-->
+<!--            </p>-->
 
             <h3>Reference</h3>
             <p>1. Desurvire, Emmanuel. (2009). Classical and Quantum Information Theory: An Introduction for the Telecom Scientist. 10.1017/CBO9780511803758. </p>
 		    <p>2. Nielsen, M. A., &#38; Chuang, I. L. (2010). Quantum Computation and Quantum Information: 10th Anniversary Edition. Cambridge: Cambridge University Press. </p>
+            <p>3. https://wayama.io/en/rec/qiskit/shor/</p>
         </div>
     </section>
 
