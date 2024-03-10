@@ -47,45 +47,67 @@
 
 
             <p>1. Encoding: convert data to quantum states</p>
-            <p>2. Oracle: construct an oracle \(U_\omega\), </p>
+            <p>2. Oracle: construct an oracle \(U_\omega\), which can flip the sign of the amplitude of the solution states, otherwise the quantum states are unchanged. </p>
             <p>\[ \begin{cases}
                     U_\omega|x> = -|x> \text{  when x } = \omega\\
                     U_\omega|x> = |x> \text{   when x } \ne \omega\\
                     \end{cases}
                 \]</p>
 
-            <p>3. Amplification: construct a circuit that has the function, </p>
-            <p>\[W = 2|\Phi><\Phi| - I\] where \(|\Phi> = \)</p>
+            <p>3. Amplification: increase the probability amplitude of the solutions while decreasing  </p>
+            <p>\[W = 2|\Phi><\Phi| - I\] where \(|\Phi> =  \frac{1}{\sqrt{2^n}}\sum_{x=0}^{2^n-1}|x>\)</p>
             <p></p>
             <p>4. Repeat: iteration the step 2 and step 3 <at></at> \(\sqrt{N}\) time, and then measurement.</p>
             <p>All processes of Grover's search are combined and the structure of the Grover's search is as follows</p>
             <img src="../../fig/Grover.png" id="centerImg">
             <p>Where V represents an oracle \(U_\omega\) and W represents amplification.</p>
 
-            <p>\[V = I - 2|\alpha><\alpha| \]</p>
+            <p>\[V = I - 2|\omega><\omega| \]</p>
             <p>\[W = 2|\Phi><\Phi| - I \]</p>
-            <p>where \(|\Phi> = \frac{1}{\sqrt{2^n}}\sum_{x=0}^{2^n-1}|x>\)</p>
-            <p>We need to know, </p>
-            <p>\[V|\alpha> = (I - 2|\alpha><\alpha|)|\alpha> = -|\alpha>\]</p>
-            <p>\[<\alpha|\Phi> = \frac{1}{\sqrt{N}} \]</p>
-            <p>\[W|\alpha> = (2|\Phi><\Phi| - I)|\alpha> = \frac{2}{\sqrt{N}}|\Phi> - |\alpha>\]</p>
-            <p>\[V|\Phi> = (I - 2|\alpha><\alpha|)|\Phi> = |\Phi> - \frac{2}{\sqrt{N}}|\alpha>\]</p>
+            <p>where \(|\Phi> = \frac{1}{\sqrt{2^n}}\sum_{x=0}^{2^n-1}|x>\), and \(\omega\) is the target.</p>
+
+            <p>I will explain the process of Grover search one step by step. Before I illustrate the procedure,
+                we need to know operations which can make the computation easy.</p>
+            <p>\[<\omega|\Phi> = \frac{1}{\sqrt{N}} \]</p>
+            <p>\[V|\omega> = (I - 2|\omega><\omega|)|\omega> = -|\omega>\]</p>
+            <p>\[W|\omega> = (2|\Phi><\Phi| - I)|\omega> = \frac{2}{\sqrt{N}}|\Phi> - |\omega>\]</p>
+            <p>\[V|\Phi> = (I - 2|\omega><\omega|)|\Phi> = |\Phi> - \frac{2}{\sqrt{N}}|\omega>\]</p>
             <p>\[W|\Phi> = (2|\Phi><\Phi| - I)|\Phi> = |\Phi>\]</p>
 
-
-            <p>The input is \(|0>^{\otimes n}\). After acting n H gates on n qubits, \(N = 2^n\) </p>
+            <p>We can see the quantum circuit of Grover search. We set \(N = 2^n\), so n qubits are required. After acting n H gates on The input \(|0>^{\otimes n}\), the quantum states are</p>
             <p>\[|\phi_1> = \frac{1}{\sqrt{N}}\sum_{x=0}^{N-1}|x> = |\Phi>\]</p>
             <p>After acting V on \(|\phi_1>\), </p>
-            <p>\[|\phi_2> = V|\Phi> = |\Phi> - \frac{2}{\sqrt{N}}|\alpha>\]</p>
+            <p>\[|\phi_2> = V|\Phi> = |\Phi> - \frac{2}{\sqrt{N}}|\omega>\]</p>
             <p>After acting W on \(|\phi_2>\), </p>
             <p>\[ \begin{align}
                 |\phi_3> &= W|\phi_2> \\
-                        &= W(|\Phi> - \frac{2}{\sqrt{N}}|\alpha>) \\
-                        &= |\Phi> - \frac{2}{\sqrt{N}}(\frac{2}{\sqrt{N}}|\Phi> - |\alpha>) \\
-                        &= (1 - \frac{4}{N})|\Phi> + \frac{2}{\sqrt{N}}|\alpha>
-
+                        &= W(|\Phi> - \frac{2}{\sqrt{N}}|\omega>) \\
+                        &= |\Phi> - \frac{2}{\sqrt{N}}(\frac{2}{\sqrt{N}}|\Phi> - |\omega>) \\
+                        &= (1 - \frac{4}{N})|\Phi> + \frac{2}{\sqrt{N}}|\omega>
 
                 \end{align}\]</p>
+            <p>After iterations of oracle and amplification, the equation of quantum states of Grover becomes complex.
+            So Grover's search is often explained using geometric intuition. Visualizing Grover's search as a rotation, we can understand how the repeated oracle and amplification amplify the probability of the solution state.</p>
+            <p>For convinience, a quantum state is provided, </p>
+            <p>\[|\Phi'> = \frac{1}{\sqrt{N-1}}\sum_{x\neq\omega}|x>\]</p>
+            <p>\[<\omega|\Phi'> = 0\]</p>
+            <p>It means that \(|\omega> \text{ and } \Phi'> \) has a 90 degree angle.</p>
+            <p>\[<\Phi|\Phi'> = \sqrt{\frac{N-1}{N}}\]</p>
+            <p>We can suppose the angle \(\theta\) between \(|\Phi> \text{ and } \Phi'>\), then \(\sin \theta = \frac{1}{\sqrt{N}} \text{ , } \theta \approx \frac{1}{\sqrt{N}}\) where N is large.</p>
+
+            <p>We can see the angle between \(|\Phi> \text{ and } |\phi_2>\), </p>
+            <p>\[<\Phi|\phi_2> = <\Phi|(|\Phi> - \frac{2}{\sqrt{N}}|\omega>) = 1 - \frac{2}{N} \]</p>
+            <p>\[\cos 2\theta = 1 - \frac{2}{N} \]</p>
+            <p>So the angle between \(|\Phi> \text{ and } |\phi_2>\) is \(2\theta\).</p>
+
+            <p>The angle between \(|\Phi> \text{ and } |\phi_3>\), </p>
+            <p>\[<\Phi|\Phi_3> = <\Phi|[(1-\frac{4}{N})|\Phi> + \frac{2}{\sqrt{N}}|\omega>] = 1 - \frac{2}{N}\]</p>
+            <p>The angle is also \(2\theta\). However, \(|\Phi_2> \text{ and } |\Phi_3>\) are not the same quantum state so the rotations between \(|\Phi_2> \text{ and }|\Phi>\), and \(|\Phi_3> \text{ and } |\Phi>\) are two directions. </p>
+            <p>We can draw the relationship between \(|\Phi>, |\Phi_1>, |Phi_2>, |Phi_3>\), </p>
+            <img src="../../fig/Grover_angle.png" id="centerImg">
+
+            <p>After n iterations of W and V applying, the quantum state is</p>
+            <p>\[|\Phi_n> = \cos(2N+1)\theta|Phi>\]</p>
             <p>
                 Waiting ... Author is trying to update quickly.
             </p>
