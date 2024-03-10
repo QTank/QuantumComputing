@@ -30,8 +30,32 @@
             <p>Quantum counting is a quantum algorithm for estimating the number of solutions for a given search set.
                 In a search problem, how to quickly determine the number of solutions? In classical computing, it requires
                 the time complexity of O(N), where N represents the length of a search data set. Compared to classical computing,
-                the time complexity of quantum counting is O(\( \sqrt{N} \)). </p>
-  			<p>
+                the time complexity of quantum counting is O(\( \sqrt{N} \)). Sometimes the number of solutions are required to be found,
+                and it also is used to decide whether there is a solution in the dataset. Therefore, it is important to introduce the quantum counting algorithm.</p>
+  			<p>Define the problem <a href="https://en.wikipedia.org/wiki/Quantum_counting_algorithm">[1]</a>.</p>
+
+            <p>Consider a finite set \({0, 1}^n\) of size \(N = 2^n\) and a set B of solutions (that is a subset of \(\{0, 1\}^n\)). Define:</p>
+            <p>\[
+                f(x) = \begin{cases}
+                1& x \in B \\
+                0& x \notin B \\
+                \end{cases}
+                \]</p>
+            <p>The core of the quantum counting algorithm is to estimate the eigenvector of Grover operator.
+                It is important to why we can use it. Firstly, we suppose two quantm state: </p>
+            <p>\[|\alpha> = \frac{1}{\sqrt{N-M}}\sum_{x \notin B}|x>\]</p>
+            <p>\[|\beta> = \frac{1}{\sqrt{M}}\sum_{x \in B}|x>\]</p>
+
+            <p>\[|\Phi> = \frac{1}{\sqrt{N}}\sum_{x=0}^{N-1}|x> = \sqrt{\frac{N-M}{N}}|\alpha> + \sqrt{\frac{M}{N}}|\beta>\] </p>
+            <p>As we have introduced the Grover operator in Grover's search, the matrix: </p>
+            <p>\[G = \begin{pmatrix}
+                \cos \theta & -\sin \theta \\
+                \sin \theta & \cos \theta \\
+                \end{pmatrix}
+                \]</p>
+            <p>It is easy to know the eigenvalue of G is \(e^{\pm i\theta}\). Also, we know, </p>
+            <p>\[\sin^2(\frac{\theta}{2}) = \frac{M}{N}\]</p>
+            <p>
                 Waiting ... Author is trying to update quickly.
             </p>
 		</div>
