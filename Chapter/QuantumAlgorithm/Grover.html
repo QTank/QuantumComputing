@@ -92,25 +92,46 @@
             <p>\[|\Phi'> = \frac{1}{\sqrt{N-1}}\sum_{x\neq\omega}|x>\]</p>
             <p>\[<\omega|\Phi'> = 0\]</p>
             <p>It means that \(|\omega> \text{ and } \Phi'> \) has a 90 degree angle.</p>
-            <p>\[<\Phi|\Phi'> = \sqrt{\frac{N-1}{N}}\]</p>
-            <p>We can suppose the angle \(\theta\) between \(|\Phi> \text{ and } \Phi'>\), then \(\sin \theta = \frac{1}{\sqrt{N}} \text{ , } \theta \approx \frac{1}{\sqrt{N}}\) where N is large.</p>
+            <p>We can suppose the angle \(\theta\) between \(|\Phi> \text{ and } \Phi'>\),</p>
+            <p>\[\cos\theta = <\Phi|\Phi'> = \sqrt{\frac{N-1}{N}}\]</p>
+
+            <p>then \(\sin \theta = \frac{1}{\sqrt{N}} \text{ , } \theta \approx \frac{1}{\sqrt{N}}\) where N is large.</p>
 
             <p>We can see the angle between \(|\Phi> \text{ and } |\phi_2>\), </p>
             <p>\[<\Phi|\phi_2> = <\Phi|(|\Phi> - \frac{2}{\sqrt{N}}|\omega>) = 1 - \frac{2}{N} \]</p>
             <p>\[\cos 2\theta = 1 - \frac{2}{N} \]</p>
             <p>So the angle between \(|\Phi> \text{ and } |\phi_2>\) is \(2\theta\).</p>
 
-            <p>The angle between \(|\Phi> \text{ and } |\phi_3>\), </p>
+            <p>We also can get the angle between \(|\Phi> \text{ and } |\phi_3>\), </p>
             <p>\[<\Phi|\Phi_3> = <\Phi|[(1-\frac{4}{N})|\Phi> + \frac{2}{\sqrt{N}}|\omega>] = 1 - \frac{2}{N}\]</p>
-            <p>The angle is also \(2\theta\). However, \(|\Phi_2> \text{ and } |\Phi_3>\) are not the same quantum state so the rotations between \(|\Phi_2> \text{ and }|\Phi>\), and \(|\Phi_3> \text{ and } |\Phi>\) are two directions. </p>
-            <p>We can draw the relationship between \(|\Phi>, |\Phi_1>, |Phi_2>, |Phi_3>\), </p>
+            <p>The angle is also \(2\theta\). </p>
+
+            <p>But We need to be sure the angle between \(|\Phi_2> \text{ and } |\Phi_3>\),  </p>
+            <p>\[\begin{align}
+                <\Phi_2|\Phi_3> &= (<\Phi| - \frac{2}{\sqrt{N}}<\omega|)[(1-\frac{4}{N})|\Phi> + \frac{2}{\sqrt{N}}|\omega>] \\
+                                &= 1 - \frac{8}{N} + \frac{8}{N^2} \\
+                                &= \cos 4\theta
+                \end{align}
+                \]</p>
+            <p>However, \(|\Phi_2> \text{ and } |\Phi_3>\) are not the same quantum state and the angle between them is \(4\theta\),
+                so the rotations between \(|\Phi_2> \text{ and }|\Phi>\), and \(|\Phi_3> \text{ and } |\Phi>\) are two directions.
+                We can draw the relationship between \(|\Phi>, |\Phi'>, |\Phi_2>, |\Phi_3>\), where \(|\Phi_2> = V|\Phi>, |\Phi_3> = WV|\Phi>\),
+            </p>
+            <p></p>
             <img src="../../fig/Grover_angle.png" id="centerImg">
 
-            <p>After n iterations of W and V applying, the quantum state is</p>
-            <p>\[|\Phi_n> = \cos(2N+1)\theta|Phi>\]</p>
-            <p>
-                Waiting ... Author is trying to update quickly.
-            </p>
+            <p>After t iterations of applying unitary W and V, the angle between the new quantum state \(|\Phi_t>\) and the target quantum state \(|\Phi>\) is \(2\theta t\).
+            We want the new quantum state \(|\Phi_t>\) to be close to the target \(|\omega>\) so that we can find the target with the highest probability. Then we can have, </p>
+            <p>\[2\theta t = \frac{\pi}{2} - \theta\]</p>
+            <p>\[t = \frac{\pi}{4\theta} - \frac{1}{2} \approx \frac{\pi\sqrt{N}}{4} \approx \sqrt{N}\] </p>
+            <p>This means that we find the target after about \(\sqrt{N}\) iterations of applying the unitary W and V. </p>
+
+            <h3>Example on Qiskit</h3>
+            <p>The search solution space is {000, 001, 010, 011, 100, 101, 110, 111} and the targets are 011 and 110. </p>
+            <img src="../../fig/Grover_code1.png" id="centerImg">
+            <img src="../../fig/Grover_code2.png" id="centerImg">
+            <p>We can see the result which includes 011 and 110 with the highest probabilities. It proves that we can get the target through Grover's search. Note that the Oracle will be designed according to the target.</p>
+<!--            <p>Waiting ... Author is trying to update quickly.</p>-->
 		</div>
     </section>
 

@@ -53,12 +53,83 @@
                 \sin \theta & \cos \theta \\
                 \end{pmatrix}
                 \]</p>
-            <p>It is easy to know the eigenvalue of G is \(e^{\pm i\theta}\). Also, we know, </p>
-            <p>\[\sin(\frac{\theta}{2}) = \sqrt{\frac{M}{N}}\]</p>
-            <p>When we estimate the eigenvalue of G, it is easy to get the value of M = \(2N\sin^2{\frac{\theta}{2}}\). </p>
-            <p>The circuit consists of two registers, one has t qubits and the other has n qubits. It is as follows</p>
+            <p>Note that the \(\theta\) is the angle between \(|\Phi> \text{ and } G|\Phi>\),
+                and also equals the double of the angle between \(|\phi> \text{ and } |\alpha> \).</p>
+            <p>Now I give the proof of the Grover operator G, </p>
+            <p>\[\cos\frac{\theta}{2} = <\Phi|\alpha> = \sqrt{\frac{N-M}{N}} \]</p>
+            <p>Then, \[\sin\frac{\theta}{2} = \sqrt{\frac{M}{N}}\]</p>
+            <p>\[\sin\theta = \frac{2\sqrt{M(N-M)}}{N}\]</p>
+            <p>\[\cos\theta = \frac{N-2M}{N}\]</p>
+            <p>After applying G on \(|\alpha>\), </p>
+            <p>\[\begin{align}
 
+                G|\alpha> &= WV|\alpha> \\
+                          &= (2<\varphi|\varphi> - I)|\alpha> \\
+                          &= 2\sqrt{\frac{N-M}{N}}|\Phi> - |\alpha> \\
+                          &= 2\sqrt{\frac{N-M}{N}}(\sqrt{\frac{N-M}{N}}|\alpha> + \sqrt{\frac{M}{N}}|\beta>) - |\alpha> \\
+                          &= \frac{N-2M}{N}|\alpha> + \frac{2\sqrt{M(N-M)}}{N}|\beta> \\
+                          &= \cos\theta|\alpha> + \sin\theta|\beta> \\
+                \end{align}
+                \]</p>
+            <p>After applying G on \(|\beta>\), </p>
+            <p>\[\begin{align}
+                G|\beta> &= WV|\beta> = (I - 2<\Phi|\Phi>)|\beta> \\
+                         &= |\beta> - 2\sqrt{\frac{M}{N}}|\Phi> \\
+                         &= |\beta> - 2\sqrt{\frac{M}{N}}(\sqrt{\frac{N-M}{N}}|\alpha> + \sqrt{\frac{M}{N}}|\beta>) \\
+                         &= (1 - \frac{2M}{N})|\beta> - \frac{2\sqrt{M(N-M)}}{N}|\alpha> \\
+                         &= -\sin\theta|\alpha> + \cos\theta|\beta> \\
+                \end{align}
+                \]</p>
+            <p>\(|\alpha> \text{ and } \beta> \) is a group of orthogonal vectors as orthogonal basis of the operator G, </p>
+
+            <p>We can suppose the matrix of G, \(<\alpha| = [1, 0] \text{ and } <\beta| = [0, 1]\)</p>
+            <p>\[G = \begin{pmatrix}
+                    A & B \\
+                    C & D \\
+                \end{pmatrix}
+                \]</p>
+            <p>\[G|\alpha> = \begin{pmatrix}
+
+                A & B\\
+                C & D \\
+                \end{pmatrix} \begin{pmatrix}
+                1 \\
+
+                0\\
+                \end{pmatrix}
+                = \begin{pmatrix}
+                A \\
+                C \\
+                \end{pmatrix} = A|\alpha> + C|\beta>
+                \]</p>
+            <p>Then, we can get </p>
+            <p>\[ A = \cos\theta\]</p>
+            <p>\[ C = \sin\theta\]</p>
+            <p>\[
+                G|\beta> = \begin{pmatrix}
+                A & B \\
+                C & D \\
+                \end{pmatrix} \begin{pmatrix}
+                0 \\
+                1 \\
+                \end{pmatrix} = \begin{pmatrix}
+                B \\
+                D \\
+                \end{pmatrix} = B|\alpha> + D|\beta>\]</p>
+            <p>Then, we can get, </p>
+            <p>\[ B = -\sin\theta\]</p>
+            <p>\[ D = \cos\theta\]</p>
+            <p>This is the proof of the operator G.</p>
+            <p>When we know the matrix of the operator G, it is easy to know the eigenvalue of G is \(e^{\pm i\theta}\). Also, we know, </p>
+            <p>\[\sin(\frac{\theta}{2}) = \sqrt{\frac{M}{N}}\]</p>
+            <p>When we estimate the eigenvalue of G, it is easy to get the value of M = \(N\sin^2{\frac{\theta}{2}}\). </p>
+            <p>The circuit consists of two registers, one has t qubits and the other has n qubits. It is as follows</p>
             <img src="../../fig/Counting.png" id="centerImg">
+            <h3>Example on Qiskit</h3>
+            <p>The Grover operator is from <a herf="../Grover.html">Grover's search</a>. The number of solutions is 2. </p>
+            <img src="../../fig/QCounting_code1.png" id="centerImg">
+            <img src="../../fig/QCounting_code2.png" id="centerImg">
+            <img src="../../fig/QCounting_code3.png" id="centerImg">
             <p>
                 Waiting ... Author is trying to update quickly.
             </p>
