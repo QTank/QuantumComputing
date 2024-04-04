@@ -33,12 +33,18 @@
             <p>Protein folding is the physical process by which a polypeptide chain produces a three-dimensional structure.
                 It involves primary structure, secondary structure, tertiary structure, and quaternary structure.
                 The structure of a protein is crucial for its functions, as it determines how the protein interacts with other molecules in the cell.</p>
-            <ul>
-                <li>Primary structure: The linear sequence of amino acids join together, which is determined by the genetic code in DNA. </li>
-                <li>Secondary structure: The structures, such as alpha helices and beta sheets, are stabilized by hydrogen bonding between the backbone atoms of amino acids.</li>
-                <li>Tertiary structure: It arises from the folding of secondary structure elements and interactions between amino acids. </li>
-                <li>Quaternary structure: multiple proteins fold into a larger and functional protein.</li>
-            </ul>
+
+            <div class="list-item"><span class="large-bullet"></span><b>(1) Primary structure:</b> The linear sequence of amino acids join together, which is determined by the genetic code in DNA. </div>
+            <div class="list-item"><span class="large-bullet"></span><b>(2) Secondary structure:</b> The structures, such as alpha helices and beta sheets, are stabilized by hydrogen bonding between the backbone atoms of amino acids.</div>
+            <div class="list-item"><span class="large-bullet"></span><b>(3) Tertiary structure:</b> It arises from the folding of secondary structure elements and interactions between amino acids. </div>
+            <div class="list-item"><span class="large-bullet"></span><b>(4) Quaternary structure:</b> multiple proteins fold into a larger and functional protein.</div>
+
+<!--            <ul>-->
+<!--                <li>Primary structure: The linear sequence of amino acids join together, which is determined by the genetic code in DNA. </li>-->
+<!--                <li>Secondary structure: The structures, such as alpha helices and beta sheets, are stabilized by hydrogen bonding between the backbone atoms of amino acids.</li>-->
+<!--                <li>Tertiary structure: It arises from the folding of secondary structure elements and interactions between amino acids. </li>-->
+<!--                <li>Quaternary structure: multiple proteins fold into a larger and functional protein.</li>-->
+<!--            </ul>-->
 
             <p>Here, I explore the utilization of quantum algorithms for protein folding into tertiary structures.
                 Protein folding involves predicting the three-dimensional structure of a protein from its amino acid sequence,
@@ -67,11 +73,11 @@
                 ensures that the lattice structure maintains its periodicity and symmetry. Therefore, in the context of quantum protein folding, the objective is to predict the optimal configuration
                 or conformation of a protein by determining the turns of all amino acids. It represents the minimum conformation energy, which is the most stable and
                 favorable folded state of the protein. VQE is employed to find the optimal turn which has the minimum conformation energy.
-                Note that the quantum protein folding is from the reference [1]. </p>
+                Note that the method of quantum protein folding is from the reference [1] and I just explain how to use quantum protein folding from [1]. I acknowledge the work and ideas of the reference [1] as it can help understand quantum protein folding.</p>
             <img src="../fig/Lattice.png" id="centerImg">
-
+            <p>\[\text{Figure 1. A diamond lattice (a) sub-lattice A (b) sub-lattice B}\]</p>
             <h2>Methodology</h2>
-            <p>The objective is to find the optimal configuration which has the minimum conformation energy. It is important to encode the turn by qubits.
+            <p><b>Denser encoding:</b> The conformation of a protein is the relative orientations of the amino acids by determining the turns of all amino acids. Therefore, it is important to encode the turn by qubits.
             In the denser encoding, each turn between amino acids is represented by two qubits.   </p>
             <p>For the sub-lattice A:</p>
             <div class="list-item"><span class="large-bullet">&#8226;</span>00 on two qubits represents the turn direction 0</div>
@@ -86,7 +92,57 @@
             <div class="list-item"><span class="large-bullet">&#8226;</span>11 on two qubits represents the turn direction \(\overline{3}\)</div>
             <p></p>
 
+            <p>For a protein with N amino acids, there will be N-1 turns between adjacent amino acids.
+                With the symmetry of the diamond lattice, the encoding of the first two turns as 01 and 00 is fixed.
+                The total number of required qubits is 2*(N-3) as each turn is encoded on two qubits. </p>
 
+            <p>For example, a protein with N amino acids has a conformation with denser encoding as follows, </p>
+
+            <p>\[\underbrace{[01]}_{\text{turn 1 }} \underbrace{[00]}_{\text{turn 2}} \underbrace{[q_0 q_1]}_{\text{turn 3}} \underbrace{[q_2 q_3]}_{\text{turn 4}} \underbrace{[q_4 q_5]}_{\text{turn 5}} \cdots \underbrace{[q_{(2i-6)} q_{(2i-5)}]}_{\text{turn i}} \cdots \underbrace{[q_{(2N-8)} q_{(2N-7)}]}_{\text{turn N-1}}\]</p>
+            <p>With the assumption that the first turn is at the sub-lattice, and the subsequent turns alternate between sub-lattice A and B. We can have the following constraint: </p>
+<!--            <p>For odd turns, the turn occurs at the sub-lattice A. </p>-->
+
+<!--            <p>For even turn, the turn occurs at the sub-lattice B. </p>-->
+            <div class="list-item"><span class="large-bullet">&#8226;</span>For odd turns, the turn occurs at the sub-lattice A. </div>
+            <div class="list-item"><span class="large-bullet">&#8226;</span>For even turn, the turn occurs at the sub-lattice B. </div>
+
+
+
+            <p><b>Turn indicator:</b> It is used to ensure that one turn at the axis is chosen. A turn indicator functions is defined as \(f_a(q_i q_{i+1})\) = 1 if the turn is at the axis a \(\in \{0, 1, 2, 3\}\) otherwise 0.
+
+            The turn indicator is quite important as all of the equations in the Hamiltonian is represented by it.</p>
+            <p>The turn indicator function on denser encoding at the turn i is given as follows, </p>
+            <p>\[\begin{align}
+                    f_0(i) &= (1-q_{(2i-6)})(1-q_{(2i-5)}) \\
+                    f_1(i) &= (1-q_{(2i-6)})q_{(2i-5)} \\
+                    f_2(i) &= q_{(2i-6)}(1-q_{(2i-5)}) \\
+                    f_3(i) &= q_{(2i-6)}q_{(2i-5)} \\
+                \end{align}
+                \]</p>
+            <p>Note that when i is odd, the turn occurs at the axis \(a \in \{0, 1, 2, 3\}\). When i is even, the turn occurs at the axis \(\bar{a} \in \{\bar{0}, \bar{1}, \bar{2}, \bar{3}\}\).</p>
+
+
+<!--            <p>When the even turn i occurs at the sub-lattice B, the turn indicator on denser encoding is given as follows, </p>-->
+<!--            <p>\[\begin{align}-->
+<!--                    f_{\bar{0}}(i) &= (1-q_{(2i-6)})(1-q_{(2i-5)}) \\-->
+<!--                    f_{\bar{1}}(i) &= (1-q_{(2i-6)})q_{(2i-5)} \\-->
+<!--                    f_{\bar{2}}(i) &= q_{(2i-6)}(1-q_{(2i-5)}) \\-->
+<!--                    f_{\bar{3}}(i) &= q_{(2i-6)}q_{(2i-5)} \\-->
+<!--                \end{align}-->
+<!--                \]</p>-->
+            <p></p>
+            <p><b>Hamiltonian:</b> The objective is to find the optimal configuration which has the minimum conformation energy. The energy function Hamiltonian is given as follows:</p>
+            <p>\[H = H_{back} + H_{ch} + H_{in}\]</p>
+            <p>where \(H_{back}\) represents that protein folds back into itself, \(H_{ch}\) represents the position of residue satisfies chirality contraints, and \(H_{in}\) represents the interaction between amino acids.</p>
+            <p>Fold back constraint: it is not allowed residue to fold back into itself so the fold back constraint is added into the Hamiltonian. It means that two residues can not be at the same position in the tertiary structure. </p>
+            <p>Function T(i, j) is defined for each pair of residue i and j and returns 1 if and only if the turn i and j are at the same axis a or \(\bar{a}\). </p>
+            <p>\[T(i, j) = \sum_{a\in\{0, 1, 2, 3\}}f_{a}(i)f_{a}(j)\]</p>
+            <p>The fold back term is constructed as follows, </p>
+            <p>\[H_{back} = \sum_{i=3}^{N-1}\lambda_{back}T(i, i+1)\]</p>
+            <p>where \(\lambda_{back}\) is a penalty with larger positive that can be adjusted.</p>
+
+
+            <h3>Reference</h3>
             <p>[1] A.Robert, P.Barkoutsos, S.Woerner and I.Tavernelli, Resource-efficient quantum algorithm for protein folding, NPJ Quantum Information, 2021, <a href="https://doi.org/10.1038/s41534-021-00368-4">https://doi.org/10.1038/s41534-021-00368-4</a></p>
 
         </div>
