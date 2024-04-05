@@ -108,8 +108,8 @@
 
 
 
-            <p><b>Turn indicator:</b> It is used to ensure that one turn at the axis is chosen. A turn indicator functions is defined as \(f_a(q_i q_{i+1})\) = 1 if the turn is at the axis a \(\in \{0, 1, 2, 3\}\) otherwise 0.
-
+            <p><b>Turn indicator:</b> It is used to ensure that one turn at the axis \(a \in \{0, 1, 2, 3\}\) on the sub-lattice A or \(\bar{a} \in \{\bar{0}, \bar{1}, \bar{2}, \bar{3} \}\) on the sub-lattice B is chosen. The turn indicator function is defined as \(f(q_i q_{i+1})\) = 1 if the turn is at the axis a \(\in \{0, 1, 2, 3\}\) or
+            at the axis \(\bar{a} \in \{\bar{0}, \bar{1}, \bar{2}, \bar{3} \}\) otherwise 0.
             The turn indicator is quite important as all of the equations in the Hamiltonian is represented by it.</p>
             <p>The turn indicator function on denser encoding at the turn i is given as follows, </p>
             <p>\[\begin{align}
@@ -119,18 +119,10 @@
                     f_3(i) &= q_{(2i-6)}q_{(2i-5)} \\
                 \end{align}
                 \]</p>
-            <p>Note that when i is odd, the turn occurs at the axis \(a \in \{0, 1, 2, 3\}\). When i is even, the turn occurs at the axis \(\bar{a} \in \{\bar{0}, \bar{1}, \bar{2}, \bar{3}\}\).</p>
+            <p>Note that when i is odd, the turn occurs at the axis \(a \in \{0, 1, 2, 3\}\). When i is even, the turn occurs at the axis \(\bar{a} \in \{\bar{0}, \bar{1}, \bar{2}, \bar{3}\}\).
+            In the following, I will use \(f_a(i)\) as a simpy representation but remember that the parity of i decides the turn at the axis a or \(\bar{a}\).</p>
 
 
-<!--            <p>When the even turn i occurs at the sub-lattice B, the turn indicator on denser encoding is given as follows, </p>-->
-<!--            <p>\[\begin{align}-->
-<!--                    f_{\bar{0}}(i) &= (1-q_{(2i-6)})(1-q_{(2i-5)}) \\-->
-<!--                    f_{\bar{1}}(i) &= (1-q_{(2i-6)})q_{(2i-5)} \\-->
-<!--                    f_{\bar{2}}(i) &= q_{(2i-6)}(1-q_{(2i-5)}) \\-->
-<!--                    f_{\bar{3}}(i) &= q_{(2i-6)}q_{(2i-5)} \\-->
-<!--                \end{align}-->
-<!--                \]</p>-->
-            <p></p>
             <p><b>Hamiltonian:</b> The objective is to find the optimal configuration which has the minimum conformation energy. The energy function Hamiltonian is given as follows:</p>
             <p>\[H = H_{back} + H_{ch} + H_{in}\]</p>
             <p>where \(H_{back}\) represents that protein folds back into itself, \(H_{ch}\) represents the position of residue satisfies chirality contraints, and \(H_{in}\) represents the interaction between amino acids.</p>
@@ -139,8 +131,67 @@
             <p>\[T(i, j) = \sum_{a\in\{0, 1, 2, 3\}}f_{a}(i)f_{a}(j)\]</p>
             <p>The fold back term is constructed as follows, </p>
             <p>\[H_{back} = \sum_{i=3}^{N-1}\lambda_{back}T(i, i+1)\]</p>
-            <p>where \(\lambda_{back}\) is a penalty with larger positive that can be adjusted.</p>
+            <p>where \(\lambda_{back}\) is a penalty with larger positive that can be adjusted. When T(i, i+1) = 1, it means that two turns at the axis a and \(\bar{a}\) respectively are the same so the protein folds back into itself.</p>
 
+
+            <p><b>Chirality contraint: </b> In proteins, the charality of amino acids plays a crucial role in determining
+                the spatial arrangement of side chains relative to the main chain. The position of the side chain is influenced by the choice of the turn \(t_i \text{ and } t_{i+1}\).
+                The chirality contraint is added to the Hamiltonian for ensuring the correct chirality.
+                Here, I only consider the first side residue of the position bead i on the main chain. It is easy to list all of possible turns of the side chain as it can be determined by the main chain turn \(t_i \text{ and } t_{i+1}\).
+                </p>
+            <img src="../fig/Chirality.png" id="centerImg">
+            <p>The expected indicator of the first bead of side chain on the main chain i is constructed with the turn i-1 and i. </p>
+            <p>\[\begin{align}
+                f_{0}^{exp}(i^{(1)}) &= (1-g_i)(f_1(i-1)f_2(i) + f_2(i-1)f_3(i) + f_3(i-1)f_1(i)) \\
+                    &+ g_i(f_1(i-1)f_3(i) + f_2(i-1)f_1(i) + f_3(i-1)f_2(i))
+                \end{align} \]</p>
+
+
+            <p>\[\begin{align}
+                f_{1}^{exp}(i^{(1)}) &= (1-g_i)(f_0(i-1)f_3(i) + f_2(i-1)f_0(i) + f_3(i-1)f_2(i)) \\
+                    &+ g_i(f_0(i-1)f_2(i) + f_2(i-1)f_3(i) + f_3(i-1)f_0(i))
+                \end{align} \]</p>
+
+            <p>\[\begin{align}
+                f_{2}^{exp}(i^{(1)}) &= (1-g_i)(f_0(i-1)f_1(i) + f_1(i-1)f_3(i) + f_3(i-1)f_0(i)) \\
+                    &+ g_i(f_0(i-1)f_3(i) + f_1(i-1)f_2(i) + f_3(i-1)f_1(i))
+                \end{align} \]</p>
+
+            <p>\[\begin{align}
+                f_{3}^{exp}(i^{(1)}) &= (1-g_i)(f_0(i-1)f_2(i) + f_1(i-1)f_0(i) + f_2(i-1)f_1(i)) \\
+                    &+ g_i(f_0(i-1)f_1(i) + f_1(i-1)f_2(i) + f_2(i-1)f_0(i))
+                \end{align} \]</p>
+
+            <p>\[g_i = \frac{1 + (-1)^i}{2}\]</p>
+            <p>Where \(g_i\) is introduced for the parity of i. \(g_i\) is 0 when i is odd otherwise 1.  </p>
+            <p>The chirality contraint is constructed according to the Table 1 where the structure is constraint when the expected turn and real turn is different.  </p>
+
+            <p>\[H_{ch} = \lambda_{ch}\sum_a\sum_{i=2}^{N-1}(1-f_a(i^{(1)}))f_a^{exp}(i^{(1)})\]</p>
+            <p>Where \(\lambda_{ch}\) is a larger positive to penalty the incorrect structure on chirality. Note that the first and last amino acid on the main chain has no side chain.</p>
+
+            <p><b>Interaction: </b> The interaction Hamiltonian represents interactions between amino acids. Before explaining the interaction, I need to introduce the distance concept for the interaction Hamiltonian.</p>
+            <p><b>Distance: </b>It represents relative location between amino acids.
+                The distance between beads is defined as the number of turns along the main chain.
+                \(n_{a}(i, j)\) is defined as the number of turns at the axis \(a \in \{0, 1, 2, 3\}\) and
+                \(n_{\bar{a}}(i, j)\) is defined as the number of turns at the axis \(\bar{a} \in \{\bar{0}, \bar{1}, \bar{2}, \bar{3}\}\).
+                We know that the turns at the sub-lattice A and B is alternated and the directions of the axis a and \(\bar{a}\) is antipodal.
+                Therefore, we assume that the number of turns occurring at the axis a is positive while it is negative at the axis \(\bar{a}\).
+                \(\Delta n_a(i, j) = n_a(i, j) - n_{\bar{a}}(i, j)\) is defined as the real distance between bead i and j at the axis a.
+            </p>
+            <p>\[\Delta n_a(i, j) = \sum_{k=i}^{j-1}(-1)^{k+1}f_a(k)\]</p>
+            <p>Note that the turn is at the axis a when i is odd.</p>
+            <p>x(i, j) is defined as follows,</p>
+
+            <p>\[x(i, j) = \begin{pmatrix}
+                    \Delta n_0(i, j) \\
+                    \Delta n_1(i, j) \\
+                    \Delta n_2(i, j) \\
+                    \Delta n_3(i, j) \\
+                    \end{pmatrix}\]
+            </p>
+
+            <p>The actual distance is defined as d(i, j),  </p>
+            <p>\[d(i, j) = \Vert x(i, j) \Vert_2^2 = \sum_{a} \Delta n_a(i, j)^2\]</p>
 
             <h3>Reference</h3>
             <p>[1] A.Robert, P.Barkoutsos, S.Woerner and I.Tavernelli, Resource-efficient quantum algorithm for protein folding, NPJ Quantum Information, 2021, <a href="https://doi.org/10.1038/s41534-021-00368-4">https://doi.org/10.1038/s41534-021-00368-4</a></p>
