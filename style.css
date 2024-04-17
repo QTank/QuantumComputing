@@ -21,8 +21,9 @@ h1 {
 	color: #fff;
 }
 
+
 .container {
-    width: 60%;
+    width: 65%;
     margin: 0 auto;
 	overflow: hidden;
     #padding: 20px; /* Adjust the padding as needed */
