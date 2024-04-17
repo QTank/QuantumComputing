@@ -11,9 +11,9 @@
 </head>
 <body>
 
-    <header onclick="window.location.href = 'index.html';">
-    	<h1>Hongfeng Zhang</h1>
-	</header>
+<!--    <header onclick="window.location.href = 'index.html';">-->
+<!--    	<h1>Hongfeng Zhang</h1>-->
+<!--	</header>-->
 
     <nav>
         <div class="container">
@@ -169,7 +169,10 @@
             <p>\[H_{ch} = \lambda_{ch}\sum_a\sum_{i=2}^{N-1}(1-f_a(i^{(1)}))f_a^{exp}(i^{(1)})\]</p>
             <p>Where \(\lambda_{ch}\) is a larger positive to penalty the incorrect structure on chirality. Note that the first and last amino acid on the main chain has no side chain.</p>
 
-            <p><b>Interaction: </b> The interaction Hamiltonian represents interactions between amino acids. Before explaining the interaction, I need to introduce the distance concept for the interaction Hamiltonian.</p>
+            <p><b>Interaction: </b> The interaction Hamiltonian represents interactions between amino acids. </p>
+            <p>\[H_{in} = H_{in}^{(1)} + H_{in}^{(2)} + H_{in}^{(3)} + \cdots\]</p>
+            <p>where \(H_{in}\) represents the total interaction. \(H^{(l)}\) represents the lth nearest neighbour interaction. \(H_{in}^{(1)}\) represents the first nearst neighbour interactions, \(H_{in}^{(2)}\) represents the second nearest neighbour interactions, and \(H_{in}^{(3)}\) represents the third nearest neighbour interactions.
+                Here it involves the distance, so I need to introduce the distance concept before explaining the interaction Hamiltonian.</p>
             <p><b>Distance: </b>It represents relative location between amino acids.
                 The distance between beads is defined as the number of turns along the main chain.
                 \(n_{a}(i, j)\) is defined as the number of turns at the axis \(a \in \{0, 1, 2, 3\}\) and
@@ -180,6 +183,10 @@
             </p>
             <p>\[\Delta n_a(i, j) = \sum_{k=i}^{j-1}(-1)^{k+1}f_a(k)\]</p>
             <p>Note that the turn is at the axis a when i is odd.</p>
+            <p>The distance between beads on the side chain \(i^{(s)}\) and \(j^{(p)}\) is defined as follows, where \(i^{(s)}\) represents the sth bead of the side chain at position i on the main chain, and \(j^{(p)}\) represents the pth bead of the side chain at the position j.</p>
+
+            <p>\[\Delta n_a(i^{(s)}, j^{(p)}) = \Delta n_a(i, j) + \sum_{l=1}^{p}(-1)^{j+l+1}f_a(j^{l}) - \sum_{l=1}^{s}(-1)^{i+l+1}f_a(i^{(l)})\]</p>
+
             <p>x(i, j) is defined as follows,</p>
 
             <p>\[x(i, j) = \begin{pmatrix}
@@ -192,6 +199,17 @@
 
             <p>The actual distance is defined as d(i, j),  </p>
             <p>\[d(i, j) = \Vert x(i, j) \Vert_2^2 = \sum_{a} \Delta n_a(i, j)^2\]</p>
+
+            <p><b>First nearest neighbour interaction: </b>\(H_{in}^{(1)}\) is the interaction between amino acids that are one distance apart and not directs with each other. We consider the beads i and j with j > i+2. For the one distance between beads, j - i = 1 mod 2.</p>
+
+            <p>\[H^{(1)} = \sum_{i=1}^{N-3}\sum_{\substack{j>i+2 \\ \text{j-i=1 mode 2}}}^{N} h_{i, j}^{(1)}\]</p>
+            <p>\[h_{i, j}^{(1)} = E_{i, j}^{(1)} + \lambda_1(d(i, j) - 1)\]</p>
+            <p>where \(E_{i, j}^{(1)}\) represents the interaction energy between beads i and j. Only the beads that have one distance can contribute to the interaction. The case of beads that have the distance with more than one can be added to a penalty with a larger positive. </p>
+
+            <p><b>Second nearest neighbour interaction: </b>\(H_{in}^{(2)}\) is the interaction between amino aicds that are two distance. </p>
+            <p>\[H^{(2)} = \sum_{i=1}^{N-3}\sum_{\substack{j>i+2 \\ \text{j-i=0 mode 2}}}^{N} h_{i, j}^{(2)}\]</p>
+            <p>\[h_{i, j}^{(2)} = E_{i, j}^{(2)} + \lambda_1(d(i, j) - 2)\]</p>
+            <p>where \(E_{i, j}^{(2)}\) represents the interaction energy between beads i and j. Only the beads that have two distance can contribute to the interaction. The case of beads that have the distance with more than two can be added to a penalty with a larger positive. </p>
 
             <h3>Reference</h3>
             <p>[1] A.Robert, P.Barkoutsos, S.Woerner and I.Tavernelli, Resource-efficient quantum algorithm for protein folding, NPJ Quantum Information, 2021, <a href="https://doi.org/10.1038/s41534-021-00368-4">https://doi.org/10.1038/s41534-021-00368-4</a></p>
