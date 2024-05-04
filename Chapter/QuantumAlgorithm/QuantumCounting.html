@@ -33,20 +33,21 @@
                 the time complexity of O(N), where N represents the length of a search data set. Compared to classical computing,
                 the time complexity of quantum counting is O(\( \sqrt{N} \)). Sometimes the number of solutions are required to be found,
                 and it also is used to decide whether there is a solution in the dataset. Therefore, it is important to introduce the quantum counting algorithm.</p>
-  			<p>Define the problem <a href="https://en.wikipedia.org/wiki/Quantum_counting_algorithm">[1]</a>.</p>
+  			<p>Define quantum counting from <a href="https://en.wikipedia.org/wiki/Quantum_counting_algorithm">[1]</a>.</p>
 
-            <p>Consider a finite set \({0, 1}^n\) of size \(N = 2^n\) and a set B of solutions (that is a subset of \(\{0, 1\}^n\)). Define:</p>
             <p>\[
                 f(x) = \begin{cases}
                 1& x \in B \\
                 0& x \notin B \\
                 \end{cases}
                 \]</p>
+            <p>B is a set of solutions (that is a subset of \(\{0, 1\}^n\)) and the size of the solution is N = \(2^n\). </p>
             <p>The core of the quantum counting algorithm is to estimate the eigenvector of Grover operator.
-                It is important to why we can use it. Firstly, we suppose two quantm state: </p>
+                I will explain why we need to use Grover operator. Firstly, we suppose two quantum states which are the same as Grover search: </p>
             <p>\[|\alpha> = \frac{1}{\sqrt{N-M}}\sum_{x \notin B}|x>\]</p>
             <p>\[|\beta> = \frac{1}{\sqrt{M}}\sum_{x \in B}|x>\]</p>
 
+            <p>Where M is the solution of quantum counting. </p>
             <p>\[|\Phi> = \frac{1}{\sqrt{N}}\sum_{x=0}^{N-1}|x> = \sqrt{\frac{N-M}{N}}|\alpha> + \sqrt{\frac{M}{N}}|\beta>\] </p>
             <p>As we have introduced the Grover operator in Grover's search, the matrix: </p>
             <p>\[G = \begin{pmatrix}
@@ -56,10 +57,11 @@
                 \]</p>
             <p>Note that the \(\theta\) is the angle between \(|\Phi> \text{ and } G|\Phi>\),
                 and also equals the double of the angle between \(|\phi> \text{ and } |\alpha> \).</p>
-            <p>Now I give the proof of the Grover operator G, </p>
+            <p>Now I give the proof of the Grover operator G. </p>
+            <p>Firstly, calculate the angle between \(|\Phi> \text{ and } |\alpha>\)</p>
             <p>\[\cos\frac{\theta}{2} = <\Phi|\alpha> = \sqrt{\frac{N-M}{N}} \]</p>
             <p>Then, \[\sin\frac{\theta}{2} = \sqrt{\frac{M}{N}}\]</p>
-            <p>\[\sin\theta = \frac{2\sqrt{M(N-M)}}{N}\]</p>
+            <p>\[\sin\theta = 2 \sin\frac{\theta}{2}\cos\frac{\theta}{2} = \frac{2\sqrt{M(N-M)}}{N}\]</p>
             <p>\[\cos\theta = \frac{N-2M}{N}\]</p>
             <p>After applying G on \(|\alpha>\), </p>
             <p>\[\begin{align}
