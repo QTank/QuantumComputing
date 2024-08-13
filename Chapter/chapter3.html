@@ -173,7 +173,7 @@
 
 		<section id="about" class="about">
 		<div class="container">
-			<h2>3. 2 Quantum Logic Gates</h2>
+			<h2>3.2 Quantum Logic Gates</h2>
 			<p>Quantum logic Gates, also called quantum gates, are fundamental components in the field of quantum computing. Similar to classical logic gates which are the building blocks of classical circuits, quantum gates are used to construct quantum circuits.
 				These gates manipulate quantum bits, from one quantum state \(|\psi>\) to another state \(|\psi'>\).</p>
 			<p>For example, consider a quantum gate denoted as U. The relationship between the input quantum state \(|\psi>\) and output state \(|\psi'>\) can be expressed: </p>
@@ -187,7 +187,7 @@
 				<li><b>Two-qubit gates</b>: the Controlled Not gate (CNOT), SWAP gate, Controlled Ration gate, and Controlled Unitary gate.</li>
 				<li><b>Multi-qubit gates</b>: the Toffoli gate and Controlled SWAP gate, etc.</li>
 			</ul>
-			<h3><b>One-qubit Gates</b></h3>
+			<h3><b>3.2.1 One-qubit Gates</b></h3>
 			<p><b>X gate:</b> also known as the Pauli-X gate or quantum Not gate, flips the state of a qubit from |0> to |1> and vice versa.
 				It performs the same function as the NOT gate in classical computing, which flips a bit.
 				While the classical NOT gate operates on classical bits, the quantum X gate operates on quantum states. </p>
@@ -236,30 +236,44 @@
 
 			<p>\[|\psi'> = \beta|0> + \alpha|1>\]</p>
 			<p>This output shows that the X gate flips the amplitude of |0> and |1>.</p>
-			<p><b>Y gate:</b> introduce a phase shift of 180 degrees when applied to |1>, and -180 degrees when applied to |0>.</p> 
+			<p><b>Y gate:</b> also known the Pauli-Y gate, introduces a phase shift of 180 degrees when applied to |1>, and -180 degrees when applied to |0>. In other words, Y gate flips the basis states and introduces a complex phase shift.</p>
 			<img src="../fig/Y.png" id="centerImg">
-			<p>The matrix of Y gate: </p>
+
+			<p>The matrix representation of the Y gate is given by: </p>
 			<p>\[Y = \begin{pmatrix}
             0 & -i \\
             i & 0 \\
             \end{pmatrix}\]</p>
 			
-			<p>For example, Y gate is appled to the input qubit \(|\psi> = \alpha|0> + \beta|1>\), and the output qubit \(|\psi'>\) as follow,</p>
-			<p>\[|\psi'> = Y|\psi> = \begin{pmatrix}
-            0 & -i \\
-            i & 0 \\
-            \end{pmatrix} \begin{pmatrix}
-            \alpha \\
-            \beta \\
-            \end{pmatrix} = \begin{pmatrix}
-            i\beta \\
-            -i\alpha \\
-            \end{pmatrix} = i\beta|0> - i\alpha|1>\]</p>
+
+			<p>To illustrate the operation of Y gate on a qubit, consider the input qubit state \(|\psi>\). </p>
+			<p>\[|\psi> = \alpha|0> + \beta|1>\]</p>
+			<p>After applying Y gate to the input qubit: </p>
+			<p>\[
+				\begin{align}
+					|\psi'> &= Y|\psi> \\
+						    &= \begin{pmatrix}
+								0 & -i \\
+            					i & 0 \\
+            					\end{pmatrix} \begin{pmatrix}
+            									\alpha \\
+            									\beta \\
+            								\end{pmatrix}\\
+							&= \begin{pmatrix}
+            						i\beta \\
+            						-i\alpha \\
+            					\end{pmatrix} \\
+							&= i\beta|0> - i\alpha|1>
+				\end{align}
+				\]</p>
 			
-			<p>The outcome is \(i\beta|0> - i\alpha|1>\)</p>
+			<p>Thus, the outcome state \(|\psi'>\) is: </p>
+			<p>\[|\psi'> = - i\alpha|1> + i\beta|0>\]</p>
 
-
-
+			<ul>
+				<li>When the input qubit is |0>, it means that \(\alpha\) = 1 and \(\beta\) = 0, the output state is -i|1>.</li>
+				<li>When the input qubit is |1>, it means that \(\alpha\) = 0 and \(\beta\) = 1, the output state is i|0>.</li>
+			</ul>
 			<p><b>Z gate:</b> introduce a phase flip when applied to |1>, and no changing when applied to |0>.</p> 
 			<img src="../fig/Z.png" id="centerImg">
 			<p>The matrx of Z gate:</p>
