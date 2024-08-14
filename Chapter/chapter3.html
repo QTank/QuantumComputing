@@ -271,43 +271,54 @@
 			<p>\[|\psi'> = - i\alpha|1> + i\beta|0>\]</p>
 
 			<ul>
-				<li>When the input qubit is |0>, it means that \(\alpha\) = 1 and \(\beta\) = 0, the output state is -i|1>.</li>
-				<li>When the input qubit is |1>, it means that \(\alpha\) = 0 and \(\beta\) = 1, the output state is i|0>.</li>
+				<li>When the input qubit is |0>, it means that \(\alpha\) = 1 and \(\beta\) = 0, and the output state is -i|1>.</li>
+				<li>When the input qubit is |1>, it means that \(\alpha\) = 0 and \(\beta\) = 1, and the output state is i|0>.</li>
 			</ul>
-			<p><b>Z gate:</b> introduce a phase flip when applied to |1>, and no changing when applied to |0>.</p> 
+			<p><b>Z gate:</b>, also known as the Paulit-Z gate, introduces a phase flip of 180 degrees when applied to |1>, and no changing when applied to |0>.</p>
 			<img src="../fig/Z.png" id="centerImg">
-			<p>The matrx of Z gate:</p>
+			<p>The matrix representation of Z gate is given by:</p>
 			<p>\[Z = \begin{pmatrix}
             1 & 0 \\
             0 & -1 \\
             \end{pmatrix}\]</p>
 
 
-			<p>For example, Z gate is appled to the input qubit \(|\psi> = \alpha|0> + \beta|1>\), and the output qubit \(|\psi'>\) as follow,</p>
-			<p>\[|\psi'> = Z|\psi> = \begin{pmatrix}
-            1 & 0 \\
-            0 & -1 \\
-            \end{pmatrix} \begin{pmatrix}
-            \alpha \\
-            \beta \\
-            \end{pmatrix} = \begin{pmatrix}
-            \alpha \\
-            -\beta \\
-            \end{pmatrix} = \alpha|0> - \beta|1>\]</p>
+			<p>To illustrate the operation of the Z gate on a qubit, consider the input qubit \(|\psi>\)</p>
+			<p>\[|\psi> = \alpha|0> + \beta|1>\]</p>
+			<p>where \(\alpha\) and \(\beta\) are the amplitude of the quantum state |0> and |1>. </p>
+			<p>After applying Z gate to the input qubit \(|\psi>\), </p>
+			<p>\[
+				\begin{align}
+					|\psi'> &= Z|\psi> \\
+							&= \begin{pmatrix}
+            						1 & 0 \\
+            						0 & -1 \\
+            					\end{pmatrix} \begin{pmatrix}
+            										\alpha \\
+            										\beta \\
+            								\end{pmatrix} \\
+							& = \begin{pmatrix}
+            							\alpha \\
+            							-\beta \\
+            					\end{pmatrix} \\
+							&= \alpha|0> - \beta|1>
+				\end{align}
+				\]</p>
 
-			<p>The outcome is \(\alpha|0> - \beta|1>\)</p>
+			<p>Thus, the outcome state \(|\psi'>\) is:</p>
+			<p>\[|\psi'> = \alpha|0> - \beta|1>\]</p>
 
-			<p><b>Hadamare gate:</b> also called H gate, creates superposition by putting a qubit into an equal probability of being |0> and |1>.</p>
+			<p><b>Hadamare gate:</b> often denoted as H gate, is a fundamental block used to create superposition states.
+				When applied to a qubit |0> or |1>, the H gate changes the basis state into an equal probability of being |0> and |1>.</p>
 			
 			<img src="../fig/H.png" id="centerImg">
-			<p> The matrix of H gate:</p>
+			<p> The matrix representation of H gate is given by:</p>
 			<p>\[H = \frac{1}{\sqrt{2}}\begin{pmatrix}
             1 & 1 \\
             1 & -1 \\
             \end{pmatrix}\]</p>
 
-
-			<p>For example, Z gate is appled to the input qubit |0> and |1> respectively, and the output qubit \(|\psi'>\) as follow,</p>
+			<p>To illustrate the operation of the H gate on a qubit, Z gate is applied to the input qubit |0> and |1> respectively,</p>
 
 			<p>\[|\psi'> = H|0> = \frac{1}{\sqrt{2}}\begin{pmatrix}
             1 & 1 \\
@@ -332,8 +343,11 @@
             -1 \\
             \end{pmatrix} = \frac{1}{\sqrt{2}}(|0>-|1>)\]</p>
 
+			<p>From the outcome, we can see that the H gate creates a superposition when applyied H gate on a qubit |0> or |1>.</p>
+			<p>We consider a general case,  the input qubit \(|\psi>\), </p>
 
-			<p>When the input qubit \(\alpha|0> + \beta|1>\), the output is </p>
+			<p>\[|\psi> = \alpha|0> + \beta|1>\]</p>
+			<p>After applying H gate to the input qubit \(|\psi>\), </p>
 			<p>\[
 				\begin{align}
 				|\psi'> &= H(\alpha|0> + \beta|1>) \\
@@ -350,28 +364,41 @@
 				\]
 			</p>
 			<p>Reader can verify the relation between X, H and Z gate through linear algebra.</p>
-			<p>Rotation X gate: also called Rx gate, performs a rotation around the x-axis of the Bloch sphere. </p>
-			<p>The matrix of Rx gate:</p>
+			<p><b>Rotation X gate</b>: also known as Rx gate, performs a rotation of a qubit around the x-axis by a specified angle \(\theta\).</p>
+			<p>The matrix representation of Rx gate:</p>
 			<p>\[R_{x}(\theta) = \begin{pmatrix}
             	\cos\frac{\theta}{2} & -i \sin\frac{\theta}{2} \\
             	-i \sin\frac{\theta}{2} &  \cos\frac{\theta}{2}\\
             \end{pmatrix}\]</p>
-			<p>Rotation Y gate: also called Ry gate, performs a rotation around the y-axis of the Bloch sphere. </p>
-			<p>The matrix of Ry gate:</p>
+			<p>where \(\theta\) is the angle by which the qubit's state is rotated around the x-axis.</p>
+			<p><b>Rotation Y gate</b>: also known as Ry gate, performs a rotation of a qubit around the y-axis by a specified angle \(\theta\). </p>
+			<p>The matrix representation of Ry gate:</p>
 			<p>\[R_{y}(\theta) = \begin{pmatrix}
             	\cos\frac{\theta}{2} & -\sin\frac{\theta}{2} \\
             	\sin\frac{\theta}{2} &  \cos\frac{\theta}{2}\\
             \end{pmatrix}\]</p>
-			<p>Rotation Z gate: also called Rz gate, performs a rotation around the z-axis of the Bloch sphere. </p>
-			<p>The matrix of Rz gate:</p>
+			<p>where \(\theta\) is the angle by which the qubit's state is rotated around the y-axis.</p>
+			<p><b>Rotation Z gate</b>: also known as Rz gate, performs a rotation of a qubit around the z-axis by a specified angle \(\theta\). </p>
+			<p>The matrix representation of Rz gate:</p>
 			<p>\[R_{z}(\theta) = \begin{pmatrix}
             	e^{-i\frac{\theta}{2}} & 0 \\
             	0 & e^{i\frac{\theta}{2}} \\
             \end{pmatrix}\]</p>
 
-			<p><b>T gate</b>: a rotation about z-axis on the Bloch sphere by \(\frac{\pi}{4}\). </p>
 
-			<p>The matrix of T gate:</p>
+			<p>where \(\theta\) is the angle by which the qubit's state is rotated around the z-axis.</p>
+			<p><b>S gate</b>: is a specified z gate, which is a rotation of a qubit about z-axis by \(\pi\). </p>
+
+			<p>The matrix representation of S gate:</p>
+			<p>\[
+				T = \begin{pmatrix}
+            	1 & 0 \\
+            	0 & i
+				\end{pmatrix}\]</p>
+
+			<p><b>T gate</b>: is a specified z gate, which is a rotation of a qubit about z-axis by \(\frac{\pi}{2}\). </p>
+
+			<p>The matrix representation of T gate:</p>
 			<p>\[
 				T = \begin{pmatrix}
             	1 & 0 \\
