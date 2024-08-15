@@ -27,16 +27,15 @@
     <section id="about" class="about">
         <div class="container">
             <h2>Chapter 4 Quantum Algorithm</h2>
-            <p>In quantum computing, a quantum algorithm is an algorithm which runs on a realistic model
-                of quantum computation, the most commonly used model being the quantum circuit model of computation<a href="https://en.wikipedia.org/wiki/Quantum_algorithm">[1]</a>.
-                In the quantum circuit model, various quantum gates are the fundamental building block to manipulate
-                the quantum states of qubits and perform computations. These gates operate on qubits in superposition,
-                which allows them to process multiple inputs simultaneously. This is different from classical circuits,
-                where gates operate on classical bits (0 or 1) and can only process one input at a time. Quantum gates can
-                be combined in various ways to create quantum circuits that execute specific quantum algorithms. The ability
-                to process multiple inputs through superposition and exploit entanglement is what gives quantum computers their
-                potential for exponential speedup over classical computers for certain task.</p>
-            <p>Quantum algorithm can be catagorized into two types, full quantum circuits and hybrid classical-quantum algorithms.
+            <p>In quantum computing, a quantum algorithm is an algorithm designed to run on a quantum computer, with the quantum
+                circuit model being the most commonly used framework<a href="https://en.wikipedia.org/wiki/Quantum_algorithm">[1]</a>.
+                In the quantum circuit model, various quantum gates serves as the fundamental building blocks that manipulate
+                the quantum states of qubits and perform computations. Unlike classical gates which operate on classical bits (0 or 1)
+                and can only process one input at a time, quantum gates act on qubits in superposition, which allows them to
+                process multiple inputs simultaneously. This capability, combined with quantum entanglement, enables quantum circuits
+                to execute specific quantum algorithms, offering the potential for exponential speedup over classical computers for certain tasks.</p>
+
+            <p>Quantum algorithm can be categorized into two main types, full quantum circuits and hybrid classical-quantum algorithms.
                 In full quantum circuits, the entire algorithm is executed on a quantum computer using quantum gates. With quantum algorithms,
                 full quantum circuits require a large number of qubits and gates to achieve a specific function. However, the number of qubits is limited
                 in a real quantum computer. In addition, the quantum gate fidelity is not high and current quantum circuits suffer from high quantum errors. It is challenging
@@ -45,12 +44,28 @@
                 of the qubits and the limitations of the underlying hardware architecture. Some quantum circuits can not be executed efficiently so
                 quantum optimization technology can reduce the effects of limited qubit connectivity. It converts a quantum circuit to an equivalent circuit
                 which can be efficiently executed on the available quantum hardware.</p>
-            <p>Hybrid classical quantum algorithms are combining classical and quantum components to achieve a specific function. Because of the limitations,
-                such as gate fidelity and coherence time, these algorithms can reduce these limitations by offloading
-                certain computations to classical processors. It aims to efficiently and explicitly execute a quantum algorithm
-                in the current condition. Another reason is that some functions can be easy to be completed in a classical computer but extremely difficult in a quantum one.
-                Using classical part will simply the complex of quantum algorithms. For example, finding the lowest energy is difficult in quantum hardware
-                so a classical optimization is executed using gradient descent algorithm.</p>
+            <ul>
+
+                <li><b>1. Full quantum algorithms</b>: In this approach, the entire algorithm is executed on a quantum computer using only quantum gates.
+                Full quantum circuits often require a large number of qubits and quantum gates to achieve specific computational tasks. However,
+                real quantum computers face several challenges, such as the restricted number of qubits, low gate fidelity, and high error rates.
+                These challenges make it difficult to implement complex quantum algorithms that involve a large number of qubits and quantum gates.
+                Moreover, quantum gates often rely on qubit reactions through two-qubit gates. Due to the physical layout of qubits and the constraints
+                of current hardware architectures, qubit connectivity is limited. This limitation can hinder the efficient execution of certain quantum circuits.
+                To address these limitations, quantum optimization techniques are used to convert a quantum circuit to an equivalent one that can be executed
+                more efficiently on the available computer hardware, mitigating the effects of limited qubit connectivity.</li>
+                <li><b>2. Hybrid classical-quantum algorithms</b>: These algorithms combine classical and quantum computation, with certain parts of
+                the algorithm executed on classical computers and others on quantum computers. Hybrid approaches can alleviate some challenges, such as
+                gate fidelity and coherence time, by offloading certain computations to classical processors. This strategy aims to
+                efficiently execute quantum algorithms within the constraints of current technology. Additionally, certain
+                tasks that are computationally intensive on quantum hardware may be more easily performed on classical computers.
+                By integrating classical computing, hybrid algorithms can simplify the complexity of quantum algorithms. For example,
+                finding the lowest energy state in a quantum system can be challenging for quantum hardware, so a classical optimization method
+                like gradient descent can be used to handle this task, making the overall algorithm more practical and efficient.</li>
+            </ul>
+            <p>Now, I will introduce some basic quantum algorithms. These foundational algorithms are key to understanding
+            how quantum computing can solve certain problems more efficiently than classical methods. They also serve as building
+            blocks for more advanced quantum applications, showcasing the unique strengths of quantum computers.</p>
 
             <p><a href="../Chapter/QuantumAlgorithm/BV.html">4.1 Bernstein–Vazirani algorithm</a></p>
             <p><a href="../Chapter/QuantumAlgorithm/Grover.html">4.2 Quantum Search Algorithm</a></p>
