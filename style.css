@@ -146,3 +146,7 @@ th, td {
     padding: 8px;
     text-align: center;
 }
+
+ul li {
+    margin-bottom: 10px; /* Adjust the spacing between list items */
+}
