@@ -85,33 +85,64 @@
         <div class="container">
             <h1 id="chapter">Chapter 1 The introduction to Quantum Computing</h1>
 			<h2>1.1 What is Quantum computer?</h2>
-			<p>Quantum computer is a machine constructed based on the principles of quantum mechanics
-                to perform computations. Richard Feynman fisrt proposed the idea that a quantum computer,
-                based on the principles of quantum mechanics, could effectively simulate the behaviour
-                of quantum systems. The original motivation behind Feynman's proposal arised from the
-                inherent challenges classical computers faced in modeling quantum systems.
-                The limitations of classical computers became increasingly evident as researchers sought to
-                simulate complex quantum phenomena. Feynman suggested the concept of quantum computer,
-                designed to utilize the unique properties of quantum mechanics to perform simulations
-                more effectively. His proposal laid the groundwork for the field of quantum computing.
-                Various types of quantum computers have been built and researchers are exporing the
-                development of quantum computers, designing quantum algorithms for solving certain problems
-                faster than classical one. The pursuit of practical quantum computing is fueled by the
-                potential to fields such as optimization, cryptography, etc. </p>
-		
+                <p>A quantum computer is a machine built on the principles of quantum mechanics to perform computations.
+                The concept of quantum computing was first proposed by Richard Feynman, who recognized that a quantum
+                computer could effectively simulate the behaviour of quantum systems - a task that classical computers
+                struggle with. Feynman's idea arose from the inherent difficulties classical computers faced in modeling
+                complex quantum phenomena. As researchers attempted to simulate increasingly intricate quantum systems,
+                the limitations of classical computers became apparent. Feynman suggested that a quantum computer, leveraging
+                the unique properties of quantum mechanics, could perform these simulations more efficiently. His proposal
+                laid the foundation for the field of quantum computing.</p>
 
+            <p>Since then, various type of quantum computers have been developed, and researchers continue to explore
+            the potential of quantum computing by designing quantum algorithms that can solve certain problems faster than
+            classical ones. The pursuit of practical quantum computing is driven by its potential impact on fields such as
+            optimization, chemistry, biology, cryptography, and beyond.</p>
+
+<!--            <p><b>Principles of quantum mechanics</b></p>-->
+<!--            <ul>-->
+
+<!--                <li><b>1. Quantum Superposition</b>-->
+<!--                    <p></p>-->
+<!--                </li>-->
+<!--            </ul>-->
+            <p></p>
+
+            <p><b>DiVincenzo Criteria</b></p>
+            <p>DiVincenzo Criteria outlined five essential criteria for implementing quantum computation in 2000 <a href="https://arxiv.org/abs/quant-ph/0002077">[1]</a>.
+                These criteria provide a framework for the implementation of quantum information processing and ensure for reliable quantum computation.
+                Two additional criteria (6 and 7) are used for quantum communication.
+
+            </p>
+
+
+            <ul>
+                <li><b>1. A scalable physical system with well characterized qubits.</b>
+                    <p>A qubit is a fundamental block of quantum computing, representing a quantum two-level system that can exist two states (denoted as |0> and |1>). These states can correspond to different physical systems, such as two spin states of a spin 1/2 particle, or the ground and excited states of an atom.
+                    These qubits are well-defined, so it means that their states can be precisely controlled and measured. These precise control is key for ensuring the qubit behaves predictably in a quantum system.</p>
+                </li>
+                <li><b>2. The ability to initialize the state of the qubits to a simple fiducial state, such as |000...>.</b>
+                    <p>It is important to initialize the qubits to a specific state before executing quantum computations.
+                    This initialization typically sets all qubits to the state |0>, creating a well-defined starting point. It ensures
+                    that the quantum algorithm begins with a clean state. </p>
+
+                </li>
+                <li><b>3. Long relevant decoherence times, much longer than the gate operation time.</b></li>
+                <li><b>4. A universal set of quantum gates.</b></li>
+                <li><b>5. A qubit-specific measurement capability.</b></li>
+                <li><b>6. The ability to interconvert stationary and flying qubits.</b></li>
+                <li><b>7. The ability faithfully to transmit flying qubits between specified locations.</b></li>
+            </ul>
 		</div>
 
 	</section>
 
-
     <section id="about" class="about">
         <div class="container">
-            <h3>1.2 Types of quantum computers</h3>
-            <p>Quantum computers are caregorized into different types based on the physical qubits.
-                Common types include superconducting quantum computers, trapped-ion quantum computers, semiconductor quantum computers
-                topoligical quantum computers, quantum annealers, and photonic quantum computers.
-                Each approach has its unique set of advantages and challenges and is discussed as follows.</p>
+            <h3>1.2 Types of Quantum Computers</h3>
+            <p>Quantum computers can be categorized into different types based on the physical qubits they utilize.
+                The most common types include superconducting quantum computers, trapped-ion quantum computers,
+                semiconductor quantum computers, topological quantum computers, photonic quantum computers, and quantum annealers.</p>
 <!--                <div class="list-item"><span class="large-bullet">&#8226;</span>Superconducting quantum computers</div>-->
 <!--				<div class="list-item"><span class="large-bullet">&#8226;</span>Trapped-ion quantum computers</div>-->
 <!--				<div class="list-item"><span class="large-bullet">&#8226;</span>Topoliogical quantum computers</div>-->
@@ -119,49 +150,94 @@
 <!--				<div class="list-item"><span class="large-bullet">&#8226;</span>Quantum annealing</div>-->
 <!--				<div class="list-item"><span class="large-bullet">&#8226;</span>NMR quantum computers</div>-->
 
-
-
-
-
-            <p><b>1.2.1 Superconducting quantum computers</b></p>
+            <p><b>1.2.1 Superconducting Quantum Computers</b></p>
 <!--                <p>How to prepare quantum bits on superconducting</p>-->
 
                 <p>Superconducting quantum computers rely on superconducting circuits to manipulate quantum bits. It utilizes
-                    superconducting materials, which has zero resistance around absolute zero temperature. Quantum bits can be prepared
-                    by Josephson Junctions. The Josephson Junction is a device in superconductivity that consists of two superconductors separated by a thin
+                    superconducting materials, which exhibit zero electrical resistance at a temperature around absolute zero.
+                    Superconducting qubits are typically created using devices called Josephson Junctions, which are key components
+                    in quantum computers.
+                    Quantum bits can be prepared by Josephson Junctions. The Josephson Junction is a device in superconductivity that consists of two superconductors separated by a thin
                     insulating or non-superconducting barrier. The key feature of the Josephson Junction is to allow
                     supercurrent to flow across the barrier. The quantum phenomenon can be observed in Josephson junctions. </p>
+
+            <p><b>Josephson Junctions</b></p>
+                <p>A Josephson Junction consists of two superconductors separated by a thin insulating or non-superconducting barrier.
+                The unique property of this junction is that it allows a supercurrent to flow across the barrier without any voltage applied.
+                This quantum phenomenon is essential for the function of superconducting qubits.</p>
                 <p></p>
-
+            <p><b>Types of superconducting qubits</b></p>
                 <img src="../fig/superconducting-qubit.png" id="centerImg">
-
                 <p>There are three types of superconducting quantum qubits, charge qubit, flux qubit, and phase qubit, where U represents a voltage, Cg represents a capacitance,
                     L represents an inductance, \(I_{0}\) represents a current, and \(E_{J}\) represents a Josephson junction.</p>
-                <p>Transmon qubit is the most common one of the charge qubit. It is a variation of the original Cooper pair box qubit,
-                    improving coherence and properties and easier control. One key feature is the energy difference between the qubit's ground
-                    and excited states is much larger than the thermal energy at the operating temperature. In addition,
-                <p>Flux qubit </p>
-                <div class="list-item">Advantages
-                    <p><span class="large-bullet">&#9642;</span>High Designability: superconducting qubits, including charge qubits, flux qubits, and phase qubits,
-                        offer a high level of design flexibility.
-                    </p>
-                    <p><span class="large-bullet">&#9642;</span>Scalability: superconducting qubits are prepared using semiconductor microfabrication
-                        processes, allowing for the leveraging of advanced chip-making technologies and the
-                        production of high-quality devices.</p>
-                    <p><span class="large-bullet">&#9642;</span>Easy to couple: superconducting qubits can be efficiently coupled using either capacitance
-                        or inductance, providing ease in creating interactions between qubits.</p>
-                    <p><span class="large-bullet">&#9642;</span>Easy to control: microwave control is compatible with the measurement of superconducting qubits,
-                        simplifying the control measurements.</p>
 
-                </div>
-                <div class="list-item">Challenges
-                    <p><span class="large-bullet">&#9642;</span>Short coherence time: decoherence time in superconducting qubits can be limited, impacting
-                        stability and reliability of quantum information processing.</p>
-                    <p><span class="large-bullet">&#9642;</span>Qubits not true 2-level systems: other unrelated quantum states exist, introducing complexities in their interactions.</p>
-                    <p><span class="large-bullet">&#9642;</span>Low temperature and advanced cryostats: Operating at sufficient low temperature, often close to absolute zero, is
-                        a requirement for superconducting qubits. The use of advanced cryostats maintains the condition of quantum coherence.</p>
-                </div>
 
+            <p><b>1. Charge Qubits</b></p>
+            <ul>
+                <li>Charge qubits are sensitive to the number of Cooper pairs (pairs of electrons with opposite spins)
+                on a superconducting island.</li>
+                <li><b>Transmon qubit</b>: A widely used variant of the charge qubit, the transmon qubit improves coherence
+                time and control by reducing sensitivity to charge noise. It maintains a large energy difference between
+                its ground and excited states, making it stable at operating temperature.</li>
+            </ul>
+
+            <p><b>2. Flux Qubits</b></p>
+            <ul><li>Flux qubits are based on the quantization of magnetic flux in a superconducting loop. The quantum state
+                corresponds to the direction of the circulating current within the loop.</li></ul>
+            <p><b>3. Phase Qubits</b></p>
+
+            <ul>
+                <li>Phase qubits use the phase difference across a Josephson Junction as the quantum variable. These qubits
+                are controlled by applying microwave pulses to induce transitions between quantum states.</li>
+            </ul>
+            <p><b>Advantages of superconducting qubits</b></p>
+            <ul>
+                <li><b>High Designability</b>: Superconducting qubits, including charge, flux, and phase qubits, offer a
+                high degree of flexibility in their design, allowing for tailored qubit properties.</li>
+                <li><b>Scalability</b>: Superconducting qubits are fabricated using advanced semiconductor microfabrication
+                processes, enabling the production of high-quality devices and potential scalability for large quantum systems.</li>
+                <li><b>Ease of Coupling</b>: Superconducting qubits can be coupled efficiently using capacitance or inductance, facilitating
+                the creation of interactions between qubits necessary for quantum computers.</li>
+                <li><b>Ease of Control</b>: Superconducting qubits are compatible with microwave control, simplifying
+                the processes of qubit manipulation </li>
+            </ul>
+            <p><b>Challenges of Superconducting Qubits</b></p>
+            <ul>
+                <li><b>Short Coherence Time</b>: The coherence time of superconducting qubits is limited, which impacts
+                the stability and reliability of quantum information processing.</li>
+                <li><b>Non-ideal Two-Level Systems</b>: Superconducting qubits are not perfect two-level systems, as they
+                can interact with other quantum states, leading to complexities in their behaviour.</li>
+                <li><b>Low Temperatures</b>: Superconducting qubits operate at temperatures close to absolute zero, requiring
+                the use of advanced cryostats to maintain quantum coherence.</li>
+            </ul>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="container">
+            <h3>1.2.2 Trapped-ion Quantum Computers</h3>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h3>1.2.3 Semiconducting Quantum Computers</h3>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h3>1.2.4 Topological Quantum Computers</h3>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h3>1.2.5 Photonic Quantum Computers</h3>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="container">
+            <h3>1.2.6 Quantum Annealers</h3>
         </div>
     </section>
 
