@@ -102,16 +102,26 @@
 <!--            <p><b>Principles of quantum mechanics</b></p>-->
 <!--            <ul>-->
 
-<!--                <li><b>1. Quantum Superposition</b>-->
+<!--                <li><b>1. Schrodinger's Equation</b>-->
 <!--                    <p></p>-->
 <!--                </li>-->
+<!--                <li><b>2. Quantum Superposition</b>-->
+<!--                    <p>In a quantum system, Multiple states can exist simultaneously until they are measured.-->
+<!--                        This superposition is described by the linear combination of the basis states.-->
+<!--                    </p>-->
+<!--                </li>-->
+<!--                <li><b>3. Uncertainty Principle</b>-->
+
+<!--                </li>-->
+<!--                <li><b>4. Quantum Entanglement</b></li>-->
+<!--                <li><b>5. No-Cloning Theorem</b></li>-->
 <!--            </ul>-->
-            <p></p>
+<!--            <p></p>-->
 
             <p><b>DiVincenzo Criteria</b></p>
             <p>DiVincenzo Criteria outlined five essential criteria for implementing quantum computation in 2000 <a href="https://arxiv.org/abs/quant-ph/0002077">[1]</a>.
                 These criteria provide a framework for the implementation of quantum information processing and ensure for reliable quantum computation.
-                Two additional criteria (6 and 7) are used for quantum communication.
+<!--                Two additional criteria (6 and 7) are used for quantum communication.-->
 
             </p>
 
@@ -127,11 +137,21 @@
                     that the quantum algorithm begins with a clean state. </p>
 
                 </li>
-                <li><b>3. Long relevant decoherence times, much longer than the gate operation time.</b></li>
-                <li><b>4. A universal set of quantum gates.</b></li>
-                <li><b>5. A qubit-specific measurement capability.</b></li>
-                <li><b>6. The ability to interconvert stationary and flying qubits.</b></li>
-                <li><b>7. The ability faithfully to transmit flying qubits between specified locations.</b></li>
+                <li><b>3. Long relevant decoherence times, much longer than the gate operation time.</b>
+                    <p>Decoherence represents that a quantum system loses its quantum coherence, causing to classically behave. In a quantum system, the decoherence time should be sufficiently long compared to the time it takes to perform quantum gates. If the decoherence time is shorter than the gate operation time, quantum computation can not be completed before decoherence affecs the system to become a classical one. Since decoherence can still occur, quantum error correction is used to detect and correct the error caused by decoherence. It allows for reliable quantum computation in the presence of decoherence.</p>
+                </li>
+                <li><b>4. A universal set of quantum gates.</b>
+
+					<p>A quantum algorithm is composed of a sequence of unitary transformations \(U_1, U_2, U_3, ..., \), each of which is applied on qubits to manipulate quantum states. These transformations are implemented by quantum gates. A universal set of quantum gates is a collection of quantum gates that can be combined to approximate any unitary operation to a desired level of accuracy. Thus, it is theoretically possible to constrcut every quantum gates and provides the ability to implement complex quantum algorithms.</p>
+				</li>
+                <li><b>5. A qubit-specific measurement capability.</b>
+					<p>In a quantum system, the result of a quantum computation depends on the ability to accurately measure states of specific quantum qubits. Different qubits may have an impact on the overall outcome of a quantum algorithm. In some quantum computations, not all qubits are required to be measured at the end and states of only specific qubits are extracted without disturbing the overall quantum state of these system. 
+
+
+					</p>
+				</li>
+<!--                <li><b>6. The ability to interconvert stationary and flying qubits.</b></li>-->
+<!--                <li><b>7. The ability faithfully to transmit flying qubits between specified locations.</b></li>-->
             </ul>
 		</div>
 
@@ -210,6 +230,8 @@
                 <li><b>Low Temperatures</b>: Superconducting qubits operate at temperatures close to absolute zero, requiring
                 the use of advanced cryostats to maintain quantum coherence.</li>
             </ul>
+            <p><b>Reference</b></p>
+            <p>1. DiVincenzo, D. P. (2000). The physical implementation of quantum computation. Fortschritte der Physik: Progress of Physics, 48(9‐11), 771-783.</p>
         </div>
     </section>
     <section id="about" class="about">
@@ -240,6 +262,7 @@
             <h3>1.2.6 Quantum Annealers</h3>
         </div>
     </section>
+
 
     <section id="contact" class="contact">
         <div class="container">
